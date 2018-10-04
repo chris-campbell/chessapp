@@ -6,8 +6,6 @@ class Game < ApplicationRecord
   validates :name, presence: true
   after_create :populate_board 
 
-
-  
   def stalemate?(color)
     current_pieces = friendly_pieces(color)
     possible_moves = []
@@ -23,7 +21,7 @@ class Game < ApplicationRecord
   end
   
   def friendly_pieces(color)
-   team_color = if color = 'black'
+   team_color = if color == 'black'
                   'black'
                   else
                   'white' 

@@ -8,9 +8,9 @@ class Piece < ApplicationRecord
  	    if capturable?(x, y)
  	      update_captured_piece!(x, y)
  	      move_to!(x, y)
-       	    end
+      end
  	  else
- 	      move_to!(x, y)
+ 	    move_to!(x, y)
  	  end
  	end
    
@@ -44,7 +44,7 @@ class Piece < ApplicationRecord
 	 (piece_present_at?(x, y)) && !is_same_color?(x, y)
  end
 
-  # Determine if space has a piece present and isnt nil
+  # Determine if space has a piece present and isn't nil
   def obstruction_present?(x, y)
     game.pieces.find_by(position_x: x, position_y: y).nil?
   end
@@ -191,10 +191,8 @@ class Piece < ApplicationRecord
   def valid_move?(x,y,king=nil)
     return false if obstructed?(x,y) 
     return false if off_the_board?(x,y)
-    #return false if in_check?(king)
-    return false if not_moved_to_different_space?(x,y)
+    # return false if not_moved_to_different_space?(x,y)
     return false if occupied?(x,y)
-    #this portion will need to be refactored based on how turn logic is built
     #return false if is_my_turn?
     return true
   end

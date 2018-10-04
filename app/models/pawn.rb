@@ -2,7 +2,8 @@ class Pawn < Piece
   
   # Determines if pawn is making a valid
   def valid_move?(x,y)
-    return false unless super
+    # Takes the abilites from valid move in the Piece.rb file and returns true or false
+    super
     y_diff = y - position_y if white?
     y_diff = position_y - y if black?
     

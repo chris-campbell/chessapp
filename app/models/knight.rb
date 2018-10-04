@@ -1,7 +1,7 @@
 class Knight < Piece
   
   def valid_move?(x, y)
-
+    
     return false unless super.off_the_board?
     return false unless super.not_moved_to_different_space?
     return false unless super.in_check?

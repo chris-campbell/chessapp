@@ -30,9 +30,10 @@ $(function() {
       .error(function(data) {
         var row = $(ui.draggable).data('row');
         var col = $(ui.draggable).data('col');
-        debugger;
-        $(ui.draggable).detach().css({top: 0,left: 0}).appendTo('td[data-row='+row+'][data-col='+col+']');
-       // alert("Invalid move. Try again.");
+        
+        value = $(ui.draggable).detach().css({top: 0,left: 0}).appendTo('td[data-row='+row+'][data-col='+col+']');
+        console.log(value)
+        alert("Invalid move. Try again.");
       });
     }
   });
