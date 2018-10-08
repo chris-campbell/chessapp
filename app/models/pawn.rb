@@ -2,22 +2,29 @@ class Pawn < Piece
 
   # Determines if pawn is making a valid
   def valid_move?(x, y)
-
-    # Checks the difference between on current coordinate to new coordinate
-    y_diff = (y - position_y).abs if white?
-    y_diff = (position_y - y).abs if black?
-
     # If forward move is true than valid_move? is True
-    forward_move?(y_diff) ? true : false
+    forward_move?(y_diff(y)) ? true : false
     super
   end
   
-  # Pawn's Special capture move
-  def en_passant(x, y)
-  end
+  def y_diff(y)
+    # Checks the difference between on current coordinate to new coordinate
+    y_diff = (y - position_y).abs if white?
+    y_diff = (position_y - y).abs if black?
+  end  
+  # # Pawn's Special capture move
+  # def en_passant(x, y)
+    
+  # end
 
-  def double_jump_performed?(x, y)
-  end
+  # def double_jump_performed!(x, y)
+  #   debugger
+  #   if @y_diff.eql?(2) && start_position?
+      
+  #     pawn_piece = present_piece(x, y)
+  #     pawn_piece.update_attributes(special: 'double_jumped')
+  #   end
+  # end
 
   # Checks if forward move is possible
   def forward_move?(y_diff)
