@@ -20,6 +20,17 @@ class Game < ApplicationRecord
     true
   end
   
+  def in_check?(king)
+    opposite_pieces = pieces.where(color: !king.color)
+    opposite_pieces.each do |piece|
+      if piece.valid_move?(king.position_x, king.position_y)
+        return true
+      else
+        return false
+      end
+    end
+  end
+  
   def friendly_pieces(color)
    team_color = if color == 'black'
                   'black'
