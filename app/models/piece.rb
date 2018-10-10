@@ -34,10 +34,7 @@ class Piece < ApplicationRecord
     game.pieces.find_by(position_x: x, position_y: y).color == color
   end
 
-  # Returns a piece object from given coordinates
-  def present_piece(x, y)
-    game.pieces.find_by(position_x: x, position_y: y)
-  end
+ 
 
   # Determines if a piece can be captured
   def capturable?(x, y)
@@ -115,6 +112,10 @@ class Piece < ApplicationRecord
       end
     end
     false
+  end
+  
+  def opposite_color
+    color.eql?('white') ? 'black' : 'white'
   end
 
   # Checks if square is occupied

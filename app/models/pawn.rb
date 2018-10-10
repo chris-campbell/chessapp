@@ -7,24 +7,62 @@ class Pawn < Piece
     super
   end
   
+  def valid_enpassant_move?(x, y)
+    return true if valid_enpassant_black?(x, y) || valid_enpassant_white?(x, y)
+    return false if invalid_enpassant_black?(x, y) || invalid_enpassant_white?(x, y)
+  end
+  
+  def valid_enpassant_white?(x, y)
+    return false unless white?
+    (position_x + 1).eql?(x) && (position_y + 1).eql?(y) ||
+    (position_x - 1).eql?(x) && (position_y + 1).eql?(y)
+  end
+  
+  def valid_enpassant_black?(x, y)
+    return false unless black?
+    (position_x + 1).eql?(x) && (position_y - 1).eql?(y) ||
+    (position_x - 1).eql?(x) && (position_y - 1).eql?(y)
+  end
+  
+  def invalid_enpassant_black?(x, y)
+    return false unless black?
+    (position_x + 1).eql?(x) && (position_y + 1).eql?(y) ||
+    (position_x - 1).eql?(x) && (position_y + 1).eql?(y) 
+  end
+  
+  def invalid_enpassant_white?(x, y)
+    return false unless white?
+    (position_x + 1).eql?(x) && (position_y - 1).eql?(y) ||
+    (position_x - 1).eql?(x) && (position y - 1).eql?(y)
+  end
+  
+  def enpassant_capturable?
+  end
+  
   def y_diff(y)
-    # Checks the difference between on current coordinate to new coordinate
+    # Gives the difference between on current coordinate to new coordinate.
     y_diff = (y - position_y).abs if white?
     y_diff = (position_y - y).abs if black?
-  end  
-  # # Pawn's Special capture move
-  # def en_passant(x, y)
-    
-  # end
+  end
 
-  # def double_jump_performed!(x, y)
-  #   debugger
-  #   if @y_diff.eql?(2) && start_position?
-      
-  #     pawn_piece = present_piece(x, y)
-  #     pawn_piece.update_attributes(special: 'double_jumped')
-  #   end
-  # end
+  # # Pawn's Special capture move
+  def en_passant(x, y)
+ 
+  end
+  
+  # Adds double
+  def perform_double_jump!(x, y)
+    if y_diff(y).eql?(2) && start_position? 
+      move_to!(x, y)
+      update_attributes(special: 'double_jumped')
+    else
+      update_attributes(special: nil)
+    end
+  end
+
+  def double_jumped?
+    special.eql?('double_jumped') ? true : false
+  end
 
   # Checks if forward move is possible
   def forward_move?(y_diff)

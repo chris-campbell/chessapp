@@ -5,6 +5,11 @@ class Game < ApplicationRecord
 
   validates :name, presence: true
   after_create :populate_board 
+  
+   # Returns a piece object from given coordinates
+  def present_piece(x, y)
+    pieces.find_by(position_x: x, position_y: y)
+  end
 
   def stalemate?(color)
     current_pieces = friendly_pieces(color)
