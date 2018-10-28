@@ -1,6 +1,7 @@
 class Knight < Piece
   
   def valid_move?(x, y)
+    
     y_diff = (position_y - y).abs
     x_diff = (position_x - x).abs
 
