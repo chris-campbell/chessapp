@@ -79,7 +79,6 @@ class Pawn < Piece
 
   # Checks if forward move is possible
   def forward_move?(y_diff)
-    debugger
     start_position? && y_diff.eql?(2) || y_diff.eql?(1)
   end
 
