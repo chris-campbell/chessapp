@@ -8,9 +8,6 @@ class GamesController < ApplicationController
 	def new 
 		@game = Game.new
 	end
-	
-	# create a method for a flipped board
-	# keep pieces in correct places in database (coordinates)
 
 	def create
 		@game = current_user.games.create(game_create_params)
@@ -21,22 +18,24 @@ class GamesController < ApplicationController
 		end
 	end
 
-	def move
-		@piece = Piece.find(params[:piece_id])
-		# if @piece.valid_move?(params[:position_x], params[:position_y])
-		# 	@piece.update_attributes(:position_x, :position_y)
-		if false
-			render status: 200, json: {valid: true}
-		else
-			flash[:notice] = "Invalid move"
-		end
-
-	end
-
 	def show
 		@game = Game.find(params[:id])
 	end
 	
+	def move
+    @piece = Piece.find(params[:piece_id])
+  
+    x = params[:position_x].to_i
+    y = params[:position_y].to_i
+  
+    if @piece.valid_move?(x, y) 
+      @piece.update_attributes(position_x: x, position_y: y)
+      render json: @piece
+    else
+    	return false
+    end
+	end
+  
 	private
 
 	def piece_params

@@ -13,6 +13,8 @@ class Piece < ApplicationRecord
       move_to!(x, y)
     end
   end
+  
+  
 
   # Changes captured piece attributes to reflect capture (changes db)
   def update_captured_piece!(x, y)
@@ -33,9 +35,11 @@ class Piece < ApplicationRecord
   def same_color?(x, y)
     game.pieces.find_by(position_x: x, position_y: y).color == color
   end
-
+  
+  def piece_exists?(x, y)
+    game.pieces.exists?(position_x: x, position_y: y)
+  end
  
-
   # Determines if a piece can be captured
   def capturable?(x, y)
     piece_present_at?(x, y) && !same_color?(x, y)
@@ -56,19 +60,16 @@ class Piece < ApplicationRecord
     color.eql?('white')
   end
 
-  # Determines if piece is being moved off board
-  def off_the_board?(x, y)
-   (x < 0 || y < 0 || x > 7 || y > 7 || x.nil? || y.nil?)
-  end
+ 
 
   # Checks checks for horizontal obstruction
   def horizontal_obstruct?(x)
-    # Checks horizontal left
+    # Checks horizontal right
     if position_x < x
       (position_x + 1).upto(x - 1) do |x|
         return true if square_occupied?(x, position_y)
       end
-    # Checks right
+    # Checks left
     elsif position_x > x
       (position_x - 1).downto(x + 1) do |x|
         return true if square_occupied?(x, position_y)
@@ -82,7 +83,7 @@ class Piece < ApplicationRecord
     # checks vertical down
     if position_y < y
       (position_y + 1).upto(y - 1) do |y|
-        return true if square_occupied?(position_x, y)
+       return true if square_occupied?(position_x, y)
       end
     # checks vertical up
     elsif position_y > y
@@ -120,7 +121,7 @@ class Piece < ApplicationRecord
 
   # Checks if square is occupied
   def square_occupied?(x, y)
-    game.pieces.where(position_x: x, position_y: y).present?
+    game.pieces.exists?(position_x: x, position_y: y)
   end
 
   def examine_path(x, y)
@@ -131,6 +132,7 @@ class Piece < ApplicationRecord
     elsif (y - position_y).abs == (x - position_x).abs
       'diagonal'
     end
+    
   end
 
   # Checks the path based on provided coodinates for obstruction
@@ -144,22 +146,30 @@ class Piece < ApplicationRecord
     when 'diagonal'
       diagonal_obstruct?(x, y)
     else
-      false
+     return false
     end
   end
 
   # Checks if pieces is still in same position
   def same_position?(x, y)
-    (position_x == x && position_y == y)
+    return false if (position_x == x && position_y == y)
   end
 
   # Check if a square is occupied
   def occupied?(x, y)
-    piece_present_at?(x, y) && same_color?(x, y)
+   return false if piece_present_at?(x, y)
   end
   
   # Determines if a pieces move is valid
   def valid_move?(x, y)
-    (obstructed?(x, y) || off_the_board?(x, y) || same_position?(x, y)) || occupied?(x, y)
+     return true if (off_the_board?(x, y) || obstructed?(x, y) || piece_present_at?(x, y)).eql?(false)
   end
+  
+   # Determines if piece is being moved off board
+  def off_the_board?(x, y)
+    (x < 0 || y < 0 || x > 7 || y > 7 || x.nil? || y.nil?)
+    # Returns true if off board.
+  end
+  
 end
+# obstructed?(x, y) || off_the_board?(x, y) || same_position?(x, y) || occupied?(x, y) || 
