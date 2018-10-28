@@ -162,7 +162,7 @@ class Piece < ApplicationRecord
   
   # Determines if a pieces move is valid
   def valid_move?(x, y)
-     return true if (off_the_board?(x, y) || obstructed?(x, y) || piece_present_at?(x, y)).eql?(false)
+   return true if (off_the_board?(x, y) || obstructed?(x, y) || piece_present_at?(x, y)) == false
   end
   
    # Determines if piece is being moved off board

@@ -4,8 +4,9 @@ class Knight < Piece
     y_diff = (position_y - y).abs
     x_diff = (position_x - x).abs
 
-    (x_diff) == 2 && (y_diff == 1) || (y_diff) == 2 && (x_diff == 1)
     super
+    (x_diff) == 2 && (y_diff == 1) || (y_diff) == 2 && (x_diff == 1)
+    
   end
   
   
