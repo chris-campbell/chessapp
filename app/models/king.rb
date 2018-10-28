@@ -1,7 +1,6 @@
 class King < Piece
   def valid_move?(x,y)
-    correct_distance?(x,y)
-    super
+    super && correct_distance?(x,y)
   end
   
   def correct_distance?(x,y)
