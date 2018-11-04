@@ -8,7 +8,7 @@ class Game < ApplicationRecord
   
    # Returns a piece object from given coordinates
   def present_piece(x, y)
-    pieces.find_by(position_x: x, position_y: y)
+    games.pieces.find_by(position_x: x, position_y: y)
   end
 
   def stalemate?(color)

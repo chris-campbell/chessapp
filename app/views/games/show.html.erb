@@ -16,7 +16,7 @@
               <% piece = @game.pieces.where(position_x: row, position_y: col).first %>
               <td data-row="<%= row %>" data-col="<%= col %>">
                 <% if piece.present? %>
-                  <div class="piece_image" data-piece_id="<%= piece.id %>" data-piece_name="<%= piece.color %>_<%= piece.type %>" id="<%= piece.id %>" data-row="<%= row %>" data-col="<%= col %>">
+                  <div class="piece_image" data-piece_id="<%= piece.id %>" data-piece_name="<%= piece.color %>_<%= piece.type %>" id="<%= piece.id %>" data-color="<%= piece.color %> "data-row="<%= row %>" data-col="<%= col %>">
                     <% image ="#{piece.color}_#{piece.type}.png" %>
                     <%= image_tag(image) %>
                   </div>
@@ -27,8 +27,6 @@
           <% end %>
       </table>
     </div>
-    
-
   </div>
 </div>
 

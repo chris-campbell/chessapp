@@ -2,8 +2,9 @@ class Pawn < Piece
 
   # Determines if pawn is making a valid
   def valid_move?(x, y)
-    forward_move?(y_diff(y))
     super
+    
+    
   end
   
   def valid_enpassant_move?(x, y)
