@@ -170,18 +170,18 @@ body {
   margin-left: auto;
   margin-right: auto;
   background-color: #62757f;
-  outline: 5px double #90a4ae;
-  webkit-box-shadow: 10px 10px 17px 1px rgba(98,117,127,0.36);
-  -moz-box-shadow: 10px 10px 17px 1px rgba(98,117,127,0.36);
-  box-shadow: 10px 10px 17px 1px rgba(98,117,127,0.36);
+  border: 1px solid darkgrey;
+  -webkit-box-shadow: 10px 10px 35px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 35px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 35px 0px rgba(0,0,0,0.75);
 }
 
 #board td {
     background-image: url("white.png");
     background-position: left;
     border-collapse: collapse;
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
 }
 .cell-highlight {
   outline-offset: -5px;
