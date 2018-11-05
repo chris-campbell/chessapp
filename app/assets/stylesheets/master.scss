@@ -29,7 +29,7 @@ h3 {
 }
 
 .navbar {
-  background: #62757f;
+  background: #313131;
   position: relative;
 }
 
@@ -82,7 +82,7 @@ a.navbar-brand.logo {
 
 body {
   font-family: 'Didact Gothic', sans-serif;
-  background-image: url("lbbg.png");
+  background-image: url("bg.png");
   //background-color: #c1d5e0;
 }
 
@@ -164,13 +164,14 @@ body {
 }
 
 .board-container {
+
 }
 
 #board {
   margin-left: auto;
   margin-right: auto;
   background-color: #62757f;
-  border: 1px solid darkgrey;
+  border: 1px solid #fff;
   -webkit-box-shadow: 10px 10px 35px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 35px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 35px 0px rgba(0,0,0,0.75);

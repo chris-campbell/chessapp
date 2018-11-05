@@ -22,6 +22,13 @@ class GamesController < ApplicationController
 		@game = Game.find(params[:id])
 	end
 	
+	def repopulate_board
+	  @game = Game.find(params[:id])
+	  @game.pieces.destroy_all
+	  @game.populate_board
+	  render 'show'
+	end
+	
 	def move
     @piece = Piece.find(params[:piece_id])
    
