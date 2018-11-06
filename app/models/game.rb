@@ -4,7 +4,8 @@ class Game < ApplicationRecord
   has_many :pieces
 
   validates :name, presence: true
-  after_create :populate_board 
+  after_create :populate_board
+  
   
    # Returns a piece object from given coordinates
   def present_piece(x, y)

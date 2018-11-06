@@ -168,13 +168,16 @@ body {
 }
 
 #board {
+  position: relative;
+  bottom: 16px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 25px;
   background-color: #62757f;
-  border: 1px solid #fff;
-  -webkit-box-shadow: 10px 10px 35px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 35px 0px rgba(0,0,0,0.75);
-  box-shadow: 10px 10px 35px 0px rgba(0,0,0,0.75);
+  border: 1px solid darkgrey;
+  -webkit-box-shadow: 10px 10px 12px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 12px -2px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 12px -2px rgba(0,0,0,0.75);
 }
 
 #board td {
@@ -183,6 +186,7 @@ body {
     border-collapse: collapse;
     width: 75px;
     height: 75px;
+    border: lightgrey;
 }
 .cell-highlight {
   outline-offset: -5px;

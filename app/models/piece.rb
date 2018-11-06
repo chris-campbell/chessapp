@@ -167,6 +167,8 @@ class Piece < ApplicationRecord
    piece_present_at?(x, y) && same_color?(x, y)
   end
   
+
+  
   # Determines if a pieces move is valid
   def valid_move?(x, y)
     if (off_the_board?(x, y) || obstructed?(x, y) || same_position?(x, y) || occupied?(x, y)).eql?(false)

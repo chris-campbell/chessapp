@@ -12,6 +12,8 @@ $(function(){
       var piece_id = ui.helper[0].id
       var x = $(event.target).data('row')
       var y = $(event.target).data('col')
+      var color = ui.helper[0].getAttribute('data-color')
+     
       
       // Current td position
       var square = this
@@ -25,7 +27,8 @@ $(function(){
           url: '/games/' + game_id + '/pieces/' + piece_id + '/move',
           dataType: 'json',
           data: { position_x: x,
-          position_y: y, 
+          position_y: y,
+          color: color,
           piece_id: piece_id }
       })
       
