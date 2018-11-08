@@ -31,29 +31,19 @@ class GamesController < ApplicationController
 	
 	def move
     @piece = Piece.find(params[:piece_id])
-   
+    @game = Game.find(params[:game_id])
+    color = @piece.color
     x = params[:position_x].to_i
     y = params[:position_y].to_i
-  
     
     if @piece.valid_move?(x, y)
+      return false if @piece.user_turn(color)
+      flash[:notice] = "Its #{@piece.user_turn(color)}"
       @piece.capture!(x, y)
       render json: @piece
     else
       false
     end
-    #   if @piece.capturable?(x, y)
-    #     @piece.update_captured_piece!(x, y)
-    #     render json: @piece
- 
-      
-    #   elsif !@piece.capturable?(x, y) 
-    #     @piece.update_attributes(position_x: x, position_y: y)
-    #     render json: @piece
-    #   end
-    # else
-    #   return false
-
 	end
   
 	private

@@ -138,13 +138,16 @@ class Piece < ApplicationRecord
       'vertical'
     elsif (y - position_y).abs == (x - position_x).abs
       'diagonal'
+    else
+      
     end
-    
+
   end
 
   # Checks the path based on provided coodinates for obstruction
   def obstructed?(x, y)
     path = examine_path(x, y)
+
     case path
     when 'horizontal'
       horizontal_obstruct?(x)
@@ -167,10 +170,21 @@ class Piece < ApplicationRecord
    piece_present_at?(x, y) && same_color?(x, y)
   end
   
+  def user_turn(color)
+    if game.turn == color
+      new_color = color == 'white' ? 'black' : 'white'
+      game.update_attributes(turn: new_color)
+      return false
+    else
+      return true
+    end
+  end
+  
 
   
   # Determines if a pieces move is valid
   def valid_move?(x, y)
+    # As long as these stay false return true
     if (off_the_board?(x, y) || obstructed?(x, y) || same_position?(x, y) || occupied?(x, y)).eql?(false)
        return true
     else

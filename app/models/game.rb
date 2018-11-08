@@ -6,12 +6,6 @@ class Game < ApplicationRecord
   validates :name, presence: true
   after_create :populate_board
   
-  
-   # Returns a piece object from given coordinates
-  def present_piece(x, y)
-    games.pieces.find_by(position_x: x, position_y: y)
-  end
-
   def stalemate?(color)
     current_pieces = friendly_pieces(color)
     possible_moves = []
@@ -26,6 +20,11 @@ class Game < ApplicationRecord
     true
   end
   
+  def friendly_pieces(color)
+    team_color = color == 'black' ? 'black' : 'white'
+    pieces.where(color: team_color)
+  end
+  
   def in_check?(king)
     opposite_pieces = pieces.where(color: !king.color)
     opposite_pieces.each do |piece|
@@ -37,14 +36,7 @@ class Game < ApplicationRecord
     end
   end
   
-  def friendly_pieces(color)
-   team_color = if color == 'black'
-                  'black'
-                  else
-                  'white' 
-                 end
-    pieces.where(color: team_color)
-  end
+  
   
 	# Will determine if move of friendly piece will cause check 
   def put_in_check?(target_x, target_y)
@@ -65,10 +57,11 @@ class Game < ApplicationRecord
 	
 	
 	def populate_board
+	  self.update_attributes(turn: 'white')
   	# Populates white pieces in the database
     (0..7).each do |p|
       Pawn.create(game_id: id, type: 'Pawn', color: 'white', position_x: p, position_y: 1)
-  end
+    end
     
     Rook.create(game_id: id, type: 'Rook', color:'white', position_x: 0, position_y: 0)
     Rook.create(game_id: id, type: 'Rook', color:'white', position_x: 7, position_y: 0)
