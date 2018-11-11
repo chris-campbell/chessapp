@@ -2,7 +2,7 @@ class Piece < ApplicationRecord
 
   belongs_to :game
 
-# Captures present piece if is capturable (changes db)
+  # Captures present piece if is capturable (changes db)
   def capture!(x, y)
     if capturable?(x, y) # piece present and same color
       # Update the captured piece
@@ -13,15 +13,13 @@ class Piece < ApplicationRecord
       move_to!(x, y)
     end
   end
-  
-  
+
   def present_piece(x, y)
     game.pieces.find_by(position_x: x, position_y: y)
   end
   
   # Changes captured piece attributes to reflect capture (changes db)
   def update_captured_piece!(x, y)
-
     present_piece(x, y).update_attributes(position_x: nil, position_y: nil, dead: true)
   end
 
@@ -29,7 +27,7 @@ class Piece < ApplicationRecord
   def move_to!(x, y)
     update_attributes(position_x: x, position_y: y)
   end
-
+  
   # Checks if a piece is present at given location.
   def piece_present_at?(x, y)
     game.pieces.exists?(position_x: x, position_y: y)
@@ -39,11 +37,11 @@ class Piece < ApplicationRecord
   def same_color?(x, y)
     game.pieces.find_by(position_x: x, position_y: y).color == color
   end
-  
+
   def piece_exists?(x, y)
     game.pieces.exists?(position_x: x, position_y: y)
   end
- 
+
   # Determines if a piece can be captured
   def capturable?(x, y)
      piece_present_at?(x, y) && !same_color?(x, y)
@@ -58,7 +56,7 @@ class Piece < ApplicationRecord
   def black?
     color.eql?('black')
   end
-
+  
   # Determines if Piece color is white
   def white?
     color.eql?('white')

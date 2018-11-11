@@ -16,6 +16,7 @@ $(function(){
       var x = $(event.target).data('row')
       var y = $(event.target).data('col')
       var color = ui.helper[0].getAttribute('data-color')
+      var type = ui.helper[0].getAttribute('data-type')
       
       // Current td position
       var square = this
@@ -31,6 +32,7 @@ $(function(){
           data: { position_x: x,
           position_y: y,
           color: color,
+          type: type,
           piece_id: piece_id }
       })
       
@@ -41,14 +43,16 @@ $(function(){
           {
             if (piece.color !== $.trim(event.target.children[0].getAttribute('data-color')))
             {
+              alert('Piece Captured')
               var id = event.target.children[0].getAttribute('id')
               $("td .piece_image[data-piece_id=" + id + ']').remove();
               $(ui.draggable).detach().css({top: 0,left: 0}).appendTo(square);
+              
             }
           }
-          else if (event.target.children.length > 0)
+          else if (event.target.children.length < 0)
           {
-            if (piece.color === $.trim(event.target.children[0].getAttribute('data-color')))
+            if (piece.color == $.trim(event.target.children[0].getAttribute('data-color')))
             {
               alert('Same Team asshole')
             }
