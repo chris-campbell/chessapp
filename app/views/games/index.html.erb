@@ -40,7 +40,7 @@
       <% if current_user.id == game.white_id %>
         <p><%= game.name %><%= link_to 'Enter', game_path(game) %></p>
       <% else %>
-        <p><%= game.name %><%= link_to 'Join', '#' %></p>
+        <p><%= game.name %><%= link_to 'Join', game_join_path(game) %></p>
       <% end %>
     <% end %>
   </div>

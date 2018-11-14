@@ -21,10 +21,18 @@ class GamesController < ApplicationController
 	end
 	
 	def join
-	  @game = Game.find(params[:id])
-	  if @game.white_id.present?
-	    puts 'hello'
+	  @game = Game.find(params[:game_id])
+	  if @game
+  	  current_pieces = @game.friendly_pieces('black')
+  	  current_pieces.each do |piece|
+  	    if @game.black_id.nil?
+  	      piece.update_attributes(player: current_user.id)
+  	    end
+  	  end
 	  end
+	  @game.black_id = current_user.id
+	  @game.save
+	  redirect_to @game
 	end
 
 	def show

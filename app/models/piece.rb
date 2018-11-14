@@ -168,7 +168,7 @@ class Piece < ApplicationRecord
    piece_present_at?(x, y) && same_color?(x, y)
   end
   
-  def user_turn(color)
+  def update_turn(color)
     if game.turn == color
       new_color = color == 'white' ? 'black' : 'white'
       game.update_attributes(turn: new_color)

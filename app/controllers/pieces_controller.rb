@@ -3,23 +3,29 @@ class PiecesController < ApplicationController
   def move
     @piece = Piece.find(params[:piece_id])
     @game = Game.find(params[:game_id])
-
     color = @piece.color
-
     x = params[:position_x].to_i
     y = params[:position_y].to_i
-    
-    # User_turn gets passed in the color just played.
-    return false if @piece.user_turn(color)
-
-    if @piece.valid_move?(x, y)
-      @piece.capture!(x, y)
-      render json: @piece
-    else
-      false
+ 
+    if @piece.player == current_user.id
+      if @piece.valid_move?(x, y)
+        @piece.capture!(x, y)
+        if @piece
+        ActionCable.server.broadcast 'piece_channel',
+                                   position_x:  x,
+                                   position_y: y,
+                                   color: color,
+                                   player: @piece.player,
+                                   piece_id: @piece.id
+        end
+        return false if @piece.update_turn(color)
+        render json: @piece
+      else
+        false
+      end
     end
 	end
-  #59242mk
+
   private
 
   def piece_params
