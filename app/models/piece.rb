@@ -1,12 +1,57 @@
 class Piece < ApplicationRecord
 
   belongs_to :game
+
+  # Captures present piece if is capturable (changes db)
+  def capture!(x, y)
+    if capturable?(x, y) # piece present and same color
+      # Update the captured piece
+      update_captured_piece!(x, y)
+      # Update the capturing piece
+      move_to!(x, y)
+    else
+      move_to!(x, y)
+    end
+  end
+
+  def present_piece(x, y)
+    game.pieces.find_by(position_x: x, position_y: y)
+  end
   
-  # Determine if space has a piece present and isnt nil
+  # Changes captured piece attributes to reflect capture (changes db)
+  def update_captured_piece!(x, y)
+    present_piece(x, y).update_attributes(position_x: nil, position_y: nil, dead: true)
+  end
+
+  # Updates a piece location based on given coordinates (changes db)
+  def move_to!(x, y)
+    update_attributes(position_x: x, position_y: y)
+  end
+  
+  # Checks if a piece is present at given location.
+  def piece_present_at?(x, y)
+    game.pieces.exists?(position_x: x, position_y: y)
+  end
+
+  # Checks if pieces have same color
+  def same_color?(x, y)
+    game.pieces.find_by(position_x: x, position_y: y).color == color
+  end
+
+  def piece_exists?(x, y)
+    game.pieces.exists?(position_x: x, position_y: y)
+  end
+
+  # Determines if a piece can be captured
+  def capturable?(x, y)
+     piece_present_at?(x, y) && !same_color?(x, y)
+  end
+
+  # Determine if space has a piece present and isn't nil
   def obstruction_present?(x, y)
     game.pieces.find_by(position_x: x, position_y: y).nil?
   end
-  
+
   # Determines if Piece color is black
   def black?
     color.eql?('black')
@@ -16,103 +61,140 @@ class Piece < ApplicationRecord
   def white?
     color.eql?('white')
   end
-  
-  # Determines if pieces is being moved off board
-  def off_the_board(x, y)
-    (x < 0 || y < 0 || x > 7 || y > 7 )
-  end
-  
-  def examine_path(position_x, position_y, end_x, end_y)
-    if position_y == end_y
-      'horizontal'
-    elsif position_x == end_x
-      'vertical'
-    elsif (end_y - position_y).abs == (end_x - position_x).abs
-      'diagonal'
-    end
-  end
-  
+
   # Checks checks for horizontal obstruction
-  def horizontal_obstruct?(end_x)
-    # Checks horizontal left
-    if position_x < end_x 
-      (position_x + 1).upto(end_x - 1) do |x|
+  def horizontal_obstruct?(x)
+    # Checks horizontal right
+    if position_x < x
+      (position_x + 1).upto(x - 1) do |x|
         return true if square_occupied?(x, position_y)
+        # DRY
       end
-    # Checks right
-    elsif position_x > end_x
-      (position_x - 1).downto(end_x + 1) do |x|
+    # Checks left
+    elsif position_x > x
+      (position_x - 1).downto(x + 1) do |x|
         return true if square_occupied?(x, position_y)
+        # DRY
       end
     end
     false
   end
-  
+
   # Checks for vertical obstruction
-  def vertical_obstruct?(end_y)
+  def vertical_obstruct?(y)
     # checks vertical down
-    if position_y < end_y
-      (position_y + 1).upto(end_y - 1) do |y|
-        return true if square_occupied?(position_x, y)
+    if position_y < y
+      (position_y + 1).upto(y - 1) do |y|
+       return true if square_occupied?(position_x, y)
+       # DRY
       end
     # checks vertical up
-    elsif position_y > end_y
-      (position_y - 1).downto(end_y + 1) do |y|
+    elsif position_y > y
+      (position_y - 1).downto(y + 1) do |y|
         return true if square_occupied?(position_x, y)
+        # DRY
       end
     end
     false
   end
 
   # Checks for diagonal_obstruction
-  def diagonal_obstruct?(end_x, end_y)
+  def diagonal_obstruct?(x, y)
     # Checks diagonal and down
-    if position_x < end_x
-      (position_x + 1).upto(end_x - 1) do |x|
-        diag_y = x - position_x
-        y = end_y > position_y ? position_y + diag_y : position_y - diag_y
-        return true if square_occupied?(x, y)
+    if position_x < x
+      ((position_x + 1)...x).each do |intermediate_x|
+        y_change = intermediate_x - position_x
+        intermediate_y = y > position_y ? position_y + y_change : position_y - y_change
+        return true if square_occupied?(intermediate_x, intermediate_y)
+        # DRY
       end
     # Checks diagonal and up
-    elsif position_x > end_x
-      (position_x - 1).downto(end_x + 1) do |x|
-        diag_y = position_x - x
-        y = end_y > position_y ? position_y + diag_y : position_y - diag_y
-        return true if square_occupied?(x, y)
+    elsif position_x > x
+      ((x + 1)...position_x).each do |intermediate_x|
+        y_change = position_x - intermediate_x
+        intermediate_y = y > position_y ? position_y + y_change : position_y - y_change
+        return true if square_occupied?(intermediate_x, intermediate_y)
+        # DRY
       end
     end
     false
   end
   
+  def opposite_color
+    color.eql?('white') ? 'black' : 'white'
+  end
+
   # Checks if square is occupied
   def square_occupied?(x, y)
-    game.pieces.where(position_x: x, position_y: y).present?
+    game.pieces.exists?(position_x: x, position_y: y)
+  end
+
+  def examine_path(x, y)
+    if position_y == y
+      'horizontal'
+    elsif position_x == x
+      'vertical'
+    elsif (y - position_y).abs == (x - position_x).abs
+      'diagonal'
+    else
+      
+    end
+
+  end
+
+  # Checks the path based on provided coodinates for obstruction
+  def obstructed?(x, y)
+    path = examine_path(x, y)
+
+    case path
+    when 'horizontal'
+      horizontal_obstruct?(x)
+    when 'vertical'
+      vertical_obstruct?(y)
+    when 'diagonal'
+      diagonal_obstruct?(x, y)
+    else
+     return false
+    end
+  end
+
+  # Checks if pieces is still in same position
+  def same_position?(x, y)
+    (position_x == x && position_y == y)
+  end
+
+  # Check if a square is occupied
+  def occupied?(x, y)
+   piece_present_at?(x, y) && same_color?(x, y)
   end
   
-  def examine_path(position_x, position_y, end_x, end_y)
-    if position_y == end_y
-      'horizontal'
-    elsif position_x == end_x
-      'vertical'
-    elsif (end_y - position_y).abs == (end_x - position_x).abs
-      'diagonal'
+  def update_turn(color)
+    if game.turn == color
+      new_color = color == 'white' ? 'black' : 'white'
+      game.update_attributes(turn: new_color)
+      return false
+    else
+      return true
     end
   end
   
-  # checks the path based on provided coodinates for obstruction
-  def obstructed?(x, y)
-    path = examine_path(position_x, position_y, x, y)
-    
-    if path
-      return horizontal_obstruct?(x) if path == 'horizontal'
+
   
-      return vertical_obstruct?(y) if path == 'vertical'
-  
-      return diagonal_obstruct?(x, y) if path == 'diagonal'
+  # Determines if a pieces move is valid
+  def valid_move?(x, y)
+    # As long as these stay false return true
+    if (off_the_board?(x, y) || obstructed?(x, y) || same_position?(x, y) || occupied?(x, y)).eql?(false)
+       return true
     else
       return false
     end
   end
   
+   # Determines if piece is being moved off board
+  def off_the_board?(x, y)
+    (x < 0 || y < 0 || x > 7 || y > 7 || x.nil? || y.nil?)
+    # Returns true if off board.
+  end
+  
 end
-
+# obstructed?(x, y) || off_the_board?(x, y) || same_position?(x, y) || occupied?(x, y) || 

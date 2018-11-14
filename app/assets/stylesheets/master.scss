@@ -1,45 +1,284 @@
 @import "bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Exo');
+@import url('https://fonts.googleapis.com/css?family=Francois+One');
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+
+//primary colors are blue-grey-dark: #62757f blue-grey-medium: #90a4ae blue-grey-light: #c1d5e0
+//secondary colors are teal-dark: #61babb teal-medium: #94eded teal-light: #c8ffff
+//use francois one for headers and accent text
+//use didact gothic for body text
+//
+
 
 h1 {
-	color: white;
+	color: black;
 	font-size: 72px;
-	font-family: 'Exo', sans-serif;
-	text-align: center;
+	font-family: 'Francois One', sans-serif;
 	padding-top: 10px;
 }
 
 h2 {
-  color: white;
-	font-family: 'Exo', sans-serif;
+  color: black;
+	font-family: 'Francois One', sans-serif;
 	font-size: 32px;
-	text-align: center;
+
 }
 
+h3 {
+  color: black;
+  font-family: 'Francois One', sans-serif;
+}
+
+.navbar {
+  background: #313131;
+  position: relative;
+}
+
+.main-nav {
+  display: inline-block;
+  float: right;
+
+}
+.logo {
+  font-family: 'Francois One', sans-serif;
+  text-transform: uppercase;
+}
+
+.main-nav-link {
+  padding-right: 30px;
+}
+
+.nav-item a{
+  color: white;
+}
+
+a.navbar-brand.logo {
+  color: white;
+}
+
+.user-info {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  content: url('hero.png');
+  width: 100vw;
+  position: relative;
+  z-index: -1;
+  bottom: 16px;
+}
+
+.game-name {
+  text-align: center;
+  position: relative;
+  bottom: 16px;
+  margin: 0;
+}
+
+.frosted {
+  position: absolute;
+  top: 75px;
+  right: 10px;
+  padding: 15px 30px 15px 30px;
+  width: 48vw;
+  text-align: right;
+}
+
+.frosted h1{
+  color: rgb(193,213,224);
+}
+
+.frosted h2 {
+  color: rgb(98,117,127);
+}
+
+
 body {
+<<<<<<< HEAD
   background: url("bg.png");
+=======
+  font-family: 'Didact Gothic', sans-serif;
+  background-image: url("bg.png");
+  //background-color: #c1d5e0;
+>>>>>>> action-cable
 }
 
 .booyah-box {
+  background-color: #f5f5f6;
   color: white;
+  padding: 2vw;
 }
+
 .booyah-box a {
   margin-left: 10px;
 }
+
+.form-box {
+  background-color: #c1d5e0;
+  padding: 40px;
+}
+
+.create-game h1 {
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.create-game form#new_game {
+  margin: 0 auto;
+}
+
+.create-game input#game_name {
+  margin-bottom: 10px;
+}
+.create-game label {
+  color: black;
+  margin-right: 5px;
+}
+
+.choose-army {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.choose-army h2 {
+  text-align: center;  
+}
+.choose-army .black {
+  width: 100px;
+  margin-left: 5px;
+}
+.choose-army .white {
+  width: 100px;
+  margin-right: 5px;
+}
+
 .row {
   margin: 0 auto;
 }
+
 .start-button {
   margin: 0 auto;
 }
+
 .games-list {
   margin: 0 auto;
 }
+
 .games-list p {
   text-align: center;
+  color: black;
+  text-transform: uppercase;
 }
+
 .available-games {
   font-size: 48px;
-  margin-top: 50px;
-  margin-bottom: 20px;
+}
+
+.board-container {
+
+}
+
+.noticer {
+  width: 100%;
+  height: 50px;
+  background: #686de0;
+  text-align: center;
+  position: relative;
+  bottom: 16px;
+}
+
+.noticer p {
+  position: relative;
+  top: 10px;
+  font-size: 20px;
+  color: #fff;
+}
+
+#board {
+  position: relative;
+  bottom: 16px;
+  top: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  background-color: #596367;
+  border: 1px solid #525252;
+  -webkit-box-shadow: 10px 10px 12px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 12px -2px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 12px -2px rgba(0,0,0,0.75);
+}
+
+#board td {
+    background-image: url("white.png");
+    background-position: left;
+    border-collapse: collapse;
+    width: 65px;
+    height: 65px;
+    border: lightgrey;
+}
+.cell-highlight {
+  outline-offset: -5px;
+  outline: 5px solid red;
+}
+
+.board td:hover {
+  outline-offset: -5px;
+  outline: 5px solid #94eded;
+}
+
+#board tr:nth-child(odd) td:nth-child(even),
+#board tr:nth-child(even) td:nth-child(odd) {
+    background-image: url("black.png");
+    background-position: left;
+    border-collapse: collapse;
+}
+
+#board td img{ 
+  height: auto;
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+  padding-bottom: 40px;
+}
+
+
+.navbar, .container, .hero {
+  margin: 0;
+}
+
+.btn {
+  background-color: #c1d5e0;
+  border: 0px;
+  color: black;
+}
+
+.btn:hover {
+  background-color: #62757f;
+  border: 0px;
+  color: #c1d5e0;
+}
+
+a {
+  color: #61babb;
+}
+
+
+@media (max-width: 900px) {
+  
+  .create-game h1 {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .choose-army {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
 }
