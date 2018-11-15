@@ -4,9 +4,6 @@
     
   </div>
   
-
-
-    <!--   Flip board here -->
     <h2 class='game-name'><%= @game.name %></h2>
     <div class='user-info'>
       <% if current_user.id == @game.white_id %>
@@ -15,11 +12,9 @@
         <p><%= current_user.email %> - Color Black</p>
       <% end %>
     </div>
-    
-    <span></span>
 
     <div class="board-container">
-      <table id="board" data-game_id="<%= @game.id %>">
+      <table id="board" data-turn='<%= @game.turn %>' data-game_id="<%= @game.id %>">
           <% 8.times.each do |col| %>
           <tr id="row">
             <% 8.times.each do |row| %>
@@ -40,3 +35,6 @@
 
 </div>
 
+<script>
+  console.log($('#board').data('turn'))
+</script>

@@ -10,8 +10,7 @@ $ ->
     color = ui.helper[0].getAttribute('data-color')
     type = ui.helper[0].getAttribute('data-type')
     player = ui.helper[0].getAttribute('data-player')
-    # Current td position
-    square = this
+    
     $.ajax
       type: 'GET'
       url: '/games/' + game_id + '/pieces/' + piece_id + '/move'

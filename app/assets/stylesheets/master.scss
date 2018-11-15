@@ -2,13 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Francois+One');
 @import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
 
-//primary colors are blue-grey-dark: #62757f blue-grey-medium: #90a4ae blue-grey-light: #c1d5e0
-//secondary colors are teal-dark: #61babb teal-medium: #94eded teal-light: #c8ffff
-//use francois one for headers and accent text
-//use didact gothic for body text
-//
-
-
 h1 {
 	color: black;
 	font-size: 72px;
@@ -20,7 +13,6 @@ h2 {
   color: black;
 	font-family: 'Francois One', sans-serif;
 	font-size: 32px;
-
 }
 
 h3 {
@@ -93,15 +85,10 @@ a.navbar-brand.logo {
   color: rgb(98,117,127);
 }
 
-
 body {
-<<<<<<< HEAD
-  background: url("bg.png");
-=======
   font-family: 'Didact Gothic', sans-serif;
   background-image: url("bg.png");
   //background-color: #c1d5e0;
->>>>>>> action-cable
 }
 
 .booyah-box {
@@ -177,10 +164,6 @@ body {
   font-size: 48px;
 }
 
-.board-container {
-
-}
-
 .noticer {
   width: 100%;
   height: 50px;
@@ -209,19 +192,14 @@ body {
   -webkit-box-shadow: 10px 10px 12px -2px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 12px -2px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 12px -2px rgba(0,0,0,0.75);
-}
-
-#board td {
+  td {
     background-image: url("white.png");
     background-position: left;
     border-collapse: collapse;
-    width: 65px;
-    height: 65px;
+    width: 55px;
+    height: 55px;
     border: lightgrey;
-}
-.cell-highlight {
-  outline-offset: -5px;
-  outline: 5px solid red;
+  }
 }
 
 .board td:hover {
@@ -247,7 +225,6 @@ body {
   padding-bottom: 40px;
 }
 
-
 .navbar, .container, .hero {
   margin: 0;
 }
@@ -267,7 +244,6 @@ body {
 a {
   color: #61babb;
 }
-
 
 @media (max-width: 900px) {
   

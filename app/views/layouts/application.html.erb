@@ -2,9 +2,7 @@
 <html>
   <head>
     <title>Chessapp</title>
-    
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
@@ -12,11 +10,12 @@
   <body>
     <%= render 'shared/nav' %>
     <div>
+      
         <class="notice"><%= notice %></p>
         <class="alert"><%= alert %></p>
               
         <%= yield %>
-      
+        
     </div>
   </body>
 </html>
