@@ -4,6 +4,7 @@ $ ->
     cursor: 'grabbing'
   $('td').droppable drop: (event, ui) ->
     game_id = $('#board').data('game_id')
+    turn = $('#board').data('turn')
     piece_id = ui.helper[0].id
     x = $(event.target).data('row')
     y = $(event.target).data('col')
@@ -21,6 +22,7 @@ $ ->
         color: color
         type: type
         player: player
+        turn: turn
         piece_id: piece_id
     return
   return

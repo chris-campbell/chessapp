@@ -10,6 +10,7 @@ App.piece = App.cable.subscriptions.create "PieceChannel",
     square = $(".ui-droppable[data-row=" + data.position_x + '][data-col=' + data.position_y + ']')
 
     if piece
+      $('.noticer p').html(data.turn)
       if square[0].children.length > 0
         squarePieceColor = square[0].children[0].getAttribute('data-color')
         if data.color != $.trim(squarePieceColor)

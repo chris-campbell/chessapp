@@ -1,0 +1,19 @@
+<div class="board-container">
+  <table id="board" data-turn='<%= @game.turn %>' data-game_id="<%= @game.id %>">
+      <% 8.times.each do |col| %>
+      <tr id="row">
+        <% 8.times.each do |row| %>
+          <% piece = @game.pieces.where(position_x: row, position_y: col).first %>
+          <td data-row="<%= row %>" data-col="<%= col %>">
+            <% if piece.present? %>
+              <div class="piece_image" data-player="<%= piece.player %>" data-player="<%= piece.player %>" data-type='<%= piece.type %>' data-piece_id="<%= piece.id %>" data-piece_name="<%= piece.color %>_<%= piece.type %>" id="<%= piece.id %>" data-color="<%= piece.color %> "data-row="<%= row %>" data-col="<%= col %>">
+                <% image ="#{piece.color}_#{piece.type}.png" %>
+                <%= image_tag(image) %>
+              </div>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+      <% end %>
+  </table>
+</div>

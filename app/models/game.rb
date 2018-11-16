@@ -28,6 +28,10 @@ class Game < ApplicationRecord
     true
   end
   
+  def determine_color(color)
+    color == 'black' ? 'white' : 'black'
+  end
+  
   def friendly_pieces(color)
     team_color = color == 'black' ? 'black' : 'white'
     pieces.where(color: team_color)
