@@ -28,7 +28,7 @@ class Game < ApplicationRecord
     true
   end
   
-  def determine_color(color)
+  def opposite_color(color)
     color == 'black' ? 'white' : 'black'
   end
   

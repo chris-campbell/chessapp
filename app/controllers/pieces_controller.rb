@@ -11,18 +11,12 @@ class PiecesController < ApplicationController
       if @piece.valid_move?(x, y)
         @piece.capture!(x, y)
         if @piece
-        puts @game.turn
         return false if @piece.update_turn(color)
-        puts @game.turn
-        ActionCable.server.broadcast 'piece_channel',
-                                   position_x:  x,
-                                   position_y: y,
-                                   color: color,
-                                   player: @piece.player,
-                                   piece_id: @piece.id,
-                                   turn: @game.determine_color(@game.turn)
+        ActionCable.server.broadcast 'piece_channel', position_x:  x,
+                                   position_y: y, color: color,
+                                   player: @piece.player, piece_id: @piece.id,
+                                   turn: @game.opposite_color(@game.turn)
         end
-        # return false if @piece.update_turn(color)
         render json: @piece
       else
         false
