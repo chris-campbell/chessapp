@@ -19,5 +19,5 @@
 
 
 <script>
-  $('.noticer p').html($('#board').data('turn'))
+  $('.noticer p').html($('#board').data('turn')[0].toUpperCase() + $('#board').data('turn').substring(1) + ' Turn')
 </script>

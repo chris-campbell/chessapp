@@ -11,9 +11,9 @@ class PiecesController < ApplicationController
       if @piece.valid_move?(x, y)
         @piece.capture!(x, y)
         if @piece
-          puts @game.turn
-          return false if @piece.update_turn(color)
-          puts @game.turn
+        puts @game.turn
+        return false if @piece.update_turn(color)
+        puts @game.turn
         ActionCable.server.broadcast 'piece_channel',
                                    position_x:  x,
                                    position_y: y,
