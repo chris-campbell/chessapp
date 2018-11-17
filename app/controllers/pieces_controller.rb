@@ -9,6 +9,7 @@ class PiecesController < ApplicationController
  
     if @piece.player == current_user.id
       if @piece.valid_move?(x, y)
+        
         @piece.capture!(x, y)
         if @piece
         return false if @piece.update_turn(color)
@@ -17,7 +18,9 @@ class PiecesController < ApplicationController
                                    player: @piece.player, piece_id: @piece.id,
                                    turn: @game.opposite_color(@game.turn)
         end
-        render json: @piece
+        
+        render json: @piece, alert: 'Great Move'
+        
       else
         false
       end

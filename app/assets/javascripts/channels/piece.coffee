@@ -17,8 +17,7 @@ App.piece = App.cable.subscriptions.create "PieceChannel",
           id = square[0].children[0].getAttribute('id')
           $('td .piece_image[data-piece_id=' + id + ']').remove()
           (piece).appendTo(square)
-      else if square[0].children.length < 0
-        if data.color == $.trim(squarePieceColor)
+      else if data.color == $.trim(squarePieceColor)
           alert 'Same Team asshole'
       else
         $(piece).detach().css(

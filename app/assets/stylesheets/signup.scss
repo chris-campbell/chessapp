@@ -1,0 +1,35 @@
+.form-box {
+  background: #313131;
+  padding: 40px;
+  h2 {
+    text-align: center;
+    color: #fff;
+  }
+  
+  label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    color: #fff;  
+  }
+  a {
+    color: #fff;
+    font-family: 'Francois One', sans-serif;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+  }
+  .already-member {
+    font-size: 0.750em;
+    color: #fff;
+  }
+  
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+  }
+  
+  textarea:focus, input:focus{
+    outline: none;
+  }
+
+}
+
