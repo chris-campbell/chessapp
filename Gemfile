@@ -60,6 +60,9 @@ group :development, :test do
 end
 
 
+group :production do
+  gem 'mini_racer'
+end
 
 gem 'devise'
 gem 'bootstrap', '4.0.0.alpha6'
