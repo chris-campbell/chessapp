@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require "tether"
+//= require bootstrap-sprockets
 //= require jquery-ui
 //= require bootstrap
-//= require bootstrap-sprockets
 //= require_tree .
