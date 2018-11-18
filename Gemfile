@@ -69,5 +69,4 @@ gem 'simple_form'
 gem 'jquery-ui-rails'
 gem 'gon'
 gem 'sprockets', '~>3.7.2'
-
 gem 'rails-assets-tether', '>= 1.1.0'
