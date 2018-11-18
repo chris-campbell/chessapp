@@ -59,6 +59,10 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
+group :production do
+  gem 'rails_12factor', '0.0.2'
+end
+
 gem 'devise'
 gem 'bootstrap', '4.0.0.alpha6'
 
