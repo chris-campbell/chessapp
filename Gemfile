@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.6'
+gem 'rails', '5.1.5'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -62,12 +62,12 @@ end
 
 group :production do
   gem 'mini_racer'
-  
+  gem 'actioncable', '5.1.5'
+  gem 'redis', '4.0.1'
 end
 
 gem 'devise'
 gem 'bootstrap', '4.0.0.alpha6'
-gem 'redis', '4.0.0'
 gem "awesome_print", require:"ap"
 gem 'simple_form'
 gem 'jquery-ui-rails'
