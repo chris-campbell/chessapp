@@ -67,7 +67,7 @@ end
 
 gem 'devise'
 gem 'bootstrap', '4.0.0.alpha6'
-gem 'redis', '3.3.3'
+gem 'redis', '4.0.0'
 gem "awesome_print", require:"ap"
 gem 'simple_form'
 gem 'jquery-ui-rails'
