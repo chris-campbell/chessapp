@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.1.5'
 # Use postgresql as the database for Active Record
@@ -59,13 +58,6 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
-
-group :production do
-  gem 'mini_racer'
-  gem 'actioncable', '5.1.5'
-  gem 'redis'
-end
-
 gem 'devise'
 gem 'bootstrap', '4.0.0.alpha6'
 gem "awesome_print", require:"ap"
@@ -74,3 +66,5 @@ gem 'jquery-ui-rails'
 gem 'gon'
 gem 'sprockets', '~>3.7.2'
 gem 'rails-assets-tether', '>= 1.1.0'
+gem 'actioncable', '5.1.5'
+gem 'redis'
