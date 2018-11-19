@@ -13,10 +13,11 @@ $(function() {
     const type = ui.helper[0].getAttribute('data-type');
     const player = ui.helper[0].getAttribute('data-player');
     
+    console.log(player)
     $.ajax({
       type: 'PUT',
       url: "/games/" + game_id + "/pieces/" + piece_id + "/move",
-      dataType: 'json',
+      dataType: 'jsonp',
       data: {
         position_x: x,
         position_y: y,
