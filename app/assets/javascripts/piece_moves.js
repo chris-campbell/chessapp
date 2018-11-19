@@ -20,11 +20,11 @@ $(function() {
       data: {
         position_x: x,
         position_y: y,
-        color,
-        type,
-        player,
-        turn,
-        piece_id
+        color: color,
+        type: type,
+        player: player,
+        turn: turn,
+        piece_id: player
       }
     });
   }
