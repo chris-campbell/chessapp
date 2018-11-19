@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     get 'join', to: 'games#join'
     resources :pieces, only: [:new, :create, :show, :index]  do
   	 	put 'move', to: 'pieces#move'
-  	 	
     end
   end
   mount ActionCable.server, at: '/cable'

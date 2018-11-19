@@ -15,7 +15,7 @@ $(function() {
     
     $.ajax({
       type: 'PUT',
-      url: "/games/" + game_id + "/pieces/" + piece_id + "/move",
+      url: "/games/" + 3 + "/pieces/" + 5 + "/move",
       dataType: 'json',
       data: {
         position_x: x,
