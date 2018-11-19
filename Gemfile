@@ -62,11 +62,12 @@ end
 
 group :production do
   gem 'mini_racer'
+  
 end
 
 gem 'devise'
 gem 'bootstrap', '4.0.0.alpha6'
-gem 'redis'
+gem 'redis', '3.3.3'
 gem "awesome_print", require:"ap"
 gem 'simple_form'
 gem 'jquery-ui-rails'
