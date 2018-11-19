@@ -17,7 +17,7 @@ $(function() {
     $.ajax({
       type: 'PUT',
       url: "/games/" + game_id + "/pieces/" + piece_id + "/move",
-      dataType: 'jsonp',
+      dataType: 'script',
       data: {
         position_x: x,
         position_y: y,
@@ -29,6 +29,7 @@ $(function() {
       }
     });
   }
+  
   });
 });
         
