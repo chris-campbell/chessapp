@@ -1,4 +1,5 @@
 class PiecesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   
   def move
     @piece = Piece.find(params[:piece_id])
@@ -19,7 +20,7 @@ class PiecesController < ApplicationController
                                    turn: @game.opposite_color(@game.turn)
         end
         
-        render json: @piece, alert: 'Great Move'
+        render json: @piece
         
       else
         false

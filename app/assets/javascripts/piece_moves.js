@@ -14,7 +14,7 @@ $(function() {
     const player = ui.helper[0].getAttribute('data-player');
     
     $.ajax({
-      type: 'GET',
+      type: 'PUT',
       url: `/games/${game_id}/pieces/${piece_id}/move`,
       dataType: 'json',
       data: {
