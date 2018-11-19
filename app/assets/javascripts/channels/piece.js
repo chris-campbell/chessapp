@@ -15,6 +15,8 @@ App.piece = App.cable.subscriptions.create("PieceChannel", {
     const square = $(`.ui-droppable[data-row=${data.position_x}][data-col=${data.position_y}]`);
 
     if (piece) {
+      console.log(data)
+      console.log(piece)
       let squarePieceColor;
       $('.noticer p').html(data.turn[0].toUpperCase() + data.turn.substring(1) + ' Turn');
       if (square[0].children.length > 0) {

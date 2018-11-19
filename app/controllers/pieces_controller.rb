@@ -20,7 +20,7 @@ class PiecesController < ApplicationController
                                    turn: @game.opposite_color(@game.turn)
         end
         
-        render json: @piece
+        
         
       else
         false
