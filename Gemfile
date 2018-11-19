@@ -63,7 +63,7 @@ end
 group :production do
   gem 'mini_racer'
   gem 'actioncable', '5.1.5'
-  gem 'redis', '4.0.1'
+  gem 'redis'
 end
 
 gem 'devise'
