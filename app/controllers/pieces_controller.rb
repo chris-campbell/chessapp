@@ -20,7 +20,7 @@ class PiecesController < ApplicationController
                                    turn: @game.opposite_color(@game.turn)
         end
         
-        
+        head :no_content
         
       else
         false
