@@ -1,24 +1,40 @@
-# README
+# ChessMate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Chessmate is the collaborative capstone project for Firehose Project. Designed to be a chess application that players can play against each other anywhere in the world. Most of the application has been fleshed out but like all applications, its a work in progess.
 
-Things you may want to cover:
+### Technologies
 
-* Ruby version
+* Ruby (version 2.4.0p)
 
-* System dependencies
+* Ruby on Rails (version 5.1.5)
 
-* Configuration
+* Bootstrap (version 4.0.0.alpha6)
 
-* Database creation
+* Jquery
 
-* Database initialization
+* Redis (version 3.3.1)
 
-* How to run the test suite
+* Rubocop
 
-* Services (job queues, cache servers, search engines, etc.)
+* Factory Bot (TDD)
 
-* Deployment instructions
+## About The Team
 
-* ...
+This application wouldn't been possible without the collbrative effort of the dev team. We poured a lot of blood, sweat and tears into bringing **Chessmate** into exisitance.
+
+## The Team
+
+
+* [Ula MV](https://github.com/ulalu)
+
+* [Terry Lowery](https://github.com/terryllowery)
+
+* [Zack John](https://github.com/Zjohn64)
+
+* [Tiffany Wismer](https://github.com/tiffanywismer)
+
+### Senior Developer Lead
+
+* [Ashmeet Sidhu](http://github.com/ashsidhu)
+
+Were always looking to improve ChessMate, any bugs, issues, improvements or additional features that you think can bring more value to this application, please feel free to fork and submit.
