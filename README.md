@@ -1,6 +1,6 @@
 # ChessMate
 
-Chessmate is the collaborative capstone project for Firehose Project. Designed to be a chess application that players can play against each other anywhere in the world. Most of the application has been fleshed out but like all applications, its a work in progess.
+Chessmate is a collaborative capstone application for The Firehose Project. Our team developed this application from the ground up; from discussing wireframing to conceptualizing the scheme, to turning ideas into code. Chessmate is designed to be a chess application that players can play against each other anywhere in the world. Most of the application has been fleshed out but like all applications, its a work in progress.
 
 ### Technologies
 
@@ -20,7 +20,7 @@ Chessmate is the collaborative capstone project for Firehose Project. Designed t
 
 ## About The Team
 
-This application wouldn't been possible without the collbrative effort of the dev team. We poured a lot of blood, sweat and tears into bringing **Chessmate** into exisitance.
+This application wouldn't have been possible without the collaborative efforts of the Saturday Slackers dev team. We poured a lot of blood, sweat, and tears into bringing **Chessmate** into existence.
 
 ## The Team
 
@@ -33,7 +33,7 @@ This application wouldn't been possible without the collbrative effort of the de
 
 * [Tiffany Wismer](https://github.com/tiffanywismer)
 
-### Senior Developer Lead
+### Lead Senior Developer
 
 * [Ashmeet Sidhu](http://github.com/ashsidhu)
 
