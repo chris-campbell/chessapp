@@ -3,6 +3,7 @@ class Pawn < Piece
   # Determines if pawn is making a valid
   def valid_move?(x, y)
     super
+
     
     
   end

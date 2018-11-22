@@ -14,22 +14,26 @@ class Game < ApplicationRecord
   scope :pawns,   -> { where(type: "Pawn") }
   scope :rooks,   -> { where(type: "Rook") }
 
-  def stalemate?(color)
-    current_pieces = friendly_pieces(color)
+  
+  def opposite_color(color)
+    color == 'black' ? 'white' : 'black'
+  end
+  
+    def stalemate?(color)
+    
+    current_pieces = self.pieces.where(color: color)
+    p current_pieces.length
     possible_moves = []
     current_pieces.each do |piece|
       8.times do |x|
         8.times do |y|
-          possible_moves << [x, y] if piece.valid_move?(x, y)
+          possible_moves.push([x, y]) if piece.valid_move?(x, y) && piece.position_x <= 7
         end
       end
     end
-    return false if possible_moves.any?
-    true
-  end
-  
-  def opposite_color(color)
-    color == 'black' ? 'white' : 'black'
+    p possible_moves
+    return possible_moves.any?
+    # true
   end
   
   def friendly_pieces(color)

@@ -12,7 +12,7 @@ $(function() {
     const color = ui.helper[0].getAttribute('data-color');
     const type = ui.helper[0].getAttribute('data-type');
     const player = ui.helper[0].getAttribute('data-player');
-    
+
     $.ajax({
       type: 'PUT',
       url: "/games/" + game_id + "/pieces/" + piece_id + "/move",

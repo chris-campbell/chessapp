@@ -26,7 +26,6 @@ class GamesController < ApplicationController
   	  current_pieces = @game.friendly_pieces('black')
   	  current_pieces.each do |piece|
   	    if @game.black_id.nil?
-  	      
   	      piece.update_attributes(player: current_user.id)
   	    end
   	  end

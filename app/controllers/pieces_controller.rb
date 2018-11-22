@@ -7,20 +7,21 @@ class PiecesController < ApplicationController
     color = @piece.color
     x = params[:position_x].to_i
     y = params[:position_y].to_i
- 
+
     if @piece.player == current_user.id
       if @piece.valid_move?(x, y)
         
         @piece.capture!(x, y)
         if @piece
-        return false if @piece.update_turn(color)
-        ActionCable.server.broadcast 'piece_channel', position_x:  x,
-                                   position_y: y, color: color,
-                                   player: @piece.player, piece_id: @piece.id,
-                                   turn: @game.opposite_color(@game.turn)
+          return false if @piece.update_turn(color)
+          
+          ActionCable.server.broadcast 'piece_channel', position_x:  x,
+                      position_y: y, color: color,
+                      player: @piece.player, piece_id: @piece.id,
+                      turn: @game.opposite_color(@game.turn)
+        # @game.stalemate?(@game.opposite_color(@game.turn))
         end
         
-    
       else
         false
       end

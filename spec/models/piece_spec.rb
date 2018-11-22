@@ -128,19 +128,33 @@ RSpec.describe Piece, type: :model do
         end
       end
       
+      it "determine if piece is capturable?" do
+        rook = FactoryBot.create(:rook, position_x: 0, position_y: 0, color: 'white', game: game)
+        piece = FactoryBot.create(:piece, position_x: 0, position_y: 3, color: 'black', game: game)
+        
+        expect(rook.capturable?(0, 3)).to eq true
+      end
+      
+      it 'determines if piece is not capturable?' do
+        rook = FactoryBot.create(:rook, position_x: 0, position_y: 0, color: 'white', game: game)
+        piece = FactoryBot.create(:piece, position_x: 0, position_y: 3, color: 'white', game: game)
+        
+        expect(rook.capturable?(0, 3)).to eq false
+      end
+      
       it "update captured piece values to reflect capture" do
         rook = FactoryBot.create(:rook, position_x: 0, position_y: 0, color: 'white', game: game)
         piece = FactoryBot.create(:piece, position_x: 0, position_y: 3, color: 'black', game: game)
         
         rook.capture!(0, 3)
-    
+        
         piece.reload
         
         expect(rook.position_x).to eq 0
         expect(rook.position_y).to eq 3
         
-        expect(piece.position_x).to eq nil
-        expect(piece.position_y).to eq nil
+        expect(piece.position_x).to eq 8
+        expect(piece.position_y).to eq 8
         expect(piece.dead).to eq true 
       
       end
@@ -149,14 +163,14 @@ RSpec.describe Piece, type: :model do
         piece1 = FactoryBot.create(:piece, position_x: 0, position_y: 0, color: 'black', game: game)
         piece2 = FactoryBot.create(:piece, position_x: 0, position_y: 3, color: 'black', game: game)
         
-        expect(piece1.is_same_color?(0, 3)).to eq true
+        expect(piece1.same_color?(0, 3)).to eq true
       end
       
       it "returns false is not same color" do
         piece1 = FactoryBot.create(:piece, position_x: 0, position_y: 0, color: 'black', game: game)
         piece2 = FactoryBot.create(:piece, position_x: 0, position_y: 3, color: 'white', game: game)
         
-        expect(piece1.is_same_color?(0, 3)).to eq false
+        expect(piece1.same_color?(0, 3)).to eq false
       end
       
       it "updates piece location" do

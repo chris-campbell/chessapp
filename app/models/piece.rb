@@ -13,6 +13,7 @@ class Piece < ApplicationRecord
       move_to!(x, y)
     end
   end
+  
 
   def present_piece(x, y)
     game.pieces.find_by(position_x: x, position_y: y)
@@ -20,7 +21,7 @@ class Piece < ApplicationRecord
   
   # Changes captured piece attributes to reflect capture (changes db)
   def update_captured_piece!(x, y)
-    present_piece(x, y).update_attributes(position_x: nil, position_y: nil, dead: true)
+    present_piece(x, y).update_attributes(position_x: 8, position_y: 8, dead: true)
   end
 
   # Updates a piece location based on given coordinates (changes db)
@@ -136,8 +137,6 @@ class Piece < ApplicationRecord
       'vertical'
     elsif (y - position_y).abs == (x - position_x).abs
       'diagonal'
-    else
-      
     end
 
   end
