@@ -215,4 +215,48 @@ RSpec.describe Piece, type: :model do
         expect(piece1.valid_move?(0, 9)).to eq false
       end 
     end
+    
+    describe 'general functions' do
+      it "Should return true if piece present at given location" do
+        piece1 = FactoryBot.create(:piece, game: game)
+        piece2 = FactoryBot.create(:piece, position_x: 0, position_y: 3)
+        
+        expect(piece2.piece_present_at?(0, 0)).to eq(true)
+      end
+    end
+    
+    describe 'general functions' do
+      
+      it "Should return true if piece present at given location" do
+        piece1 = FactoryBot.create(:piece, game: game)
+        piece2 = FactoryBot.create(:piece, position_x: 0, position_y: 3)
+        
+        expect(piece2.piece_present_at?(0, 5)).to eq(false)
+      end
+      
+      it "should determine if piece is white?" do
+        piece1 = FactoryBot.create(:piece, game: game)
+        
+        expect(piece1.white?).to eq true
+      end
+      
+      it 'should determine piece is not white?' do
+        piece1 = FactoryBot.create(:piece, game: game, color: 'black')
+        
+        expect(piece1.white?).to eq false
+      end
+      
+      it 'should determine if piece is black?' do
+        piece1 = FactoryBot.create(:piece, game: game, color: 'black')
+        
+        expect(piece1.black?).to eq true
+      end
+      
+      it 'should determine piece is not black?' do
+        piece1 = FactoryBot.create(:piece)
+        
+        expect(piece1.black?).to eq false
+      end
+    end
+    
 end

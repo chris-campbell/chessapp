@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
 	before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
+  
 	def index
 		@games = Game.all
 	end
@@ -32,7 +33,8 @@ class GamesController < ApplicationController
 	  end
 	  @game.black_id = current_user.id
 	  @game.save
-	  redirect_to @game
+	  
+	  render :show
 	end
 
 	def show

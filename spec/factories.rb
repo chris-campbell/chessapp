@@ -50,7 +50,7 @@ FactoryBot.define do
   end
 
   factory :queen do
-
+    
   end
   
 end
