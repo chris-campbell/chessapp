@@ -19,10 +19,10 @@ class Game < ApplicationRecord
     color == 'black' ? 'white' : 'black'
   end
   
-    def stalemate?(color)
+  def stalemate?(color)
     
     current_pieces = self.pieces.where(color: color)
-    p current_pieces.length
+    current_pieces.length
     possible_moves = []
     current_pieces.each do |piece|
       8.times do |x|
@@ -31,9 +31,8 @@ class Game < ApplicationRecord
         end
       end
     end
-    p possible_moves
+    possible_moves
     return possible_moves.any?
-    # true
   end
   
   def friendly_pieces(color)

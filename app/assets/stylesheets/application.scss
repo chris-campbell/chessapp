@@ -15,12 +15,18 @@
  *= require tether
  *= require_tree .
  */
+ 
+ * {
+  border-radius: 0 !important;
+ }
+ 
 .notice {
   background: red !important;
   height: 35px !important;
+  border-radius: none !important;
 }
 
 .alert {
-  background: red !important;
-  height: 35px !important;
+  border-radius: none !important;
+  background: #e74c3c;
 }

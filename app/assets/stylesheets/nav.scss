@@ -2,11 +2,21 @@
     float: right;
 }
 .notice {
-  background: red !important;
+  background: #38ada9 !important;
   height: 35px !important;
+  border-radius: none !important;
 }
 
 .alert {
-  background: red !important;
+  background: #e74c3c !important;
   height: 35px !important;
+  border-radius: none !important;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 36px;
+  color: #fff;
+}
+
+.alert-alert {
+  border-radius: none !important;
 }
