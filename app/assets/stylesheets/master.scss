@@ -170,6 +170,9 @@ body {
 
 .available-games {
   font-size: 48px;
+  border-bottom: 1px solid #262d38;
+  padding: 10px !important;
+  color: #262d38;
 }
 
 .noticer {
@@ -178,7 +181,7 @@ body {
   background: #2980b9;
   text-align: center;
   position: relative;
-  bottom: 16px;
+  bottom: 0px;
 }
 
 .noticer p {

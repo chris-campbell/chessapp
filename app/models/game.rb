@@ -3,7 +3,7 @@ class Game < ApplicationRecord
   belongs_to :user
   has_many :pieces, :dependent => :destroy
   
-  validates :name, presence: true
+  validates :name,  presence: true, length: { maximum: 50 }
   after_create :populate_board
   
   self.inheritance_column = :type
@@ -18,9 +18,8 @@ class Game < ApplicationRecord
   def opposite_color(color)
     color == 'black' ? 'white' : 'black'
   end
-  
+
   def stalemate?(color)
-    
     current_pieces = self.pieces.where(color: color)
     current_pieces.length
     possible_moves = []

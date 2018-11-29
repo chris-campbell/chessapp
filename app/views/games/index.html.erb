@@ -15,7 +15,7 @@
 <br />
 <br />
 
-<div class="booyah-box col-10 offset-1">
+<div class="booyah-box available-game-box col-6 offset-3">
   
 <!-- 	<br />
 	<br /> -->
@@ -35,15 +35,17 @@
 <br>
 
 <div class="row col-10 offset-1">
-  <div class="games-list">
+  
     <% @games.each do |game| %>
+    <div class="games-list-item">
       <% if current_user.id == game.white_id %>
         <p><%= game.name %><%= link_to 'Enter', game_path(game) %></p>
       <% else %>
         <p><%= game.name %><%= link_to 'Join', game_join_path(game) %></p>
       <% end %>
+      </div>
     <% end %>
-  </div>
+  
 </div>
 
 <br />

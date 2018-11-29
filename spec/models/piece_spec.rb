@@ -224,9 +224,9 @@ RSpec.describe Piece, type: :model do
         expect(piece2.piece_present_at?(0, 0)).to eq(true)
       end
     end
-    
+
     describe 'general functions' do
-      
+
       it "Should return true if piece present at given location" do
         piece1 = FactoryBot.create(:piece, game: game)
         piece2 = FactoryBot.create(:piece, position_x: 0, position_y: 3)
@@ -234,29 +234,66 @@ RSpec.describe Piece, type: :model do
         expect(piece2.piece_present_at?(0, 5)).to eq(false)
       end
       
-      it "should determine if piece is white?" do
+      it "should return true if piece is white?" do
         piece1 = FactoryBot.create(:piece, game: game)
         
         expect(piece1.white?).to eq true
       end
       
-      it 'should determine piece is not white?' do
+      it 'should return false if piece is not white?' do
         piece1 = FactoryBot.create(:piece, game: game, color: 'black')
         
         expect(piece1.white?).to eq false
       end
       
-      it 'should determine if piece is black?' do
+      it 'should return true if piece is black?' do
         piece1 = FactoryBot.create(:piece, game: game, color: 'black')
         
         expect(piece1.black?).to eq true
       end
       
-      it 'should determine piece is not black?' do
+      it 'should return false if piece is not black?' do
         piece1 = FactoryBot.create(:piece)
         
         expect(piece1.black?).to eq false
       end
+      
+      it 'should return true if piece in same position' do
+        piece = FactoryBot.create(:piece, position_x: 0, position_y: 0)
+        
+        expect(piece.same_position?(0, 0)).to eq true
+      end
+      
+      it 'should return false if in different position' do
+        piece = FactoryBot.create(:piece, position_x: 0, position_y: 0)
+        
+        expect(piece.same_position?(0, 3)).to eq false
+      end
+      
+      it 'should update captured piece to represent capture' do
+        game = FactoryBot.create(:game)
+        piece = FactoryBot.create(:piece, position_x: 0, position_y: 0, game_id: game.id)
+        capturable_piece = FactoryBot.create(:piece, color: 'black', position_x: 0, position_y: 1, game_id: game.id)
+    
+        piece.update_captured_piece!(0, 1)
+        capturable_piece.reload
+
+        expect(capturable_piece.dead).to eq true
+        expect(capturable_piece.position_x).to eq 8
+        expect(capturable_piece.position_y).to eq 8
+      end
+      
+      it 'should update piece location in the database' do
+        game = FactoryBot.create(:game)
+        piece = FactoryBot.create(:piece, position_x: 0, position_y: 0, game_id: game.id)
+
+        piece.move_to!(0, 1)
+        
+        piece.reload
+        expect(piece.position_x).to eq 0
+        expect(piece.position_y).to eq 1
+      end
     end
+    
     
 end

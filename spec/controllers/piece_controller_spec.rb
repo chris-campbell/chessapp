@@ -11,7 +11,7 @@ RSpec.describe PiecesController, type: :controller do
       sign_in user1
       
       put :move, params: { game_id: game.id, piece_id: piece.id, position_x: 0, position_y: 6, color: 'black' }
-        piece.reload
+      piece.reload
       game.reload
       
       expect(piece.position_x).to eq 0
