@@ -28,29 +28,21 @@ FactoryBot.define do
   end
   
   factory :king do
-    
   end
   
   factory :knight do
-    color { 'black' }
   end
   
   factory :pawn do
-    position_x { 0 }
-    position_y { 1 }
-    color { 'white' }
   end
 
   factory :bishop do
-
   end
 
   factory :rook do
-
   end
 
   factory :queen do
-    
   end
   
 end
