@@ -20,7 +20,7 @@ RSpec.describe Pawn, type: :model do
     end
     
     it "returns false if obstructed" do
-      obstruction = FactoryBot.create(:piece, position_x: 0, position_y: 2, game: game)
+      obstruction = FactoryBot.create(:piece, position_x: 0, position_y: 2, color: 'black', game: game)
       expect(pawn.valid_move?(0, 3)).to eq false
     end
     
@@ -51,14 +51,14 @@ RSpec.describe Pawn, type: :model do
     let(:game) { FactoryBot.create(:game, user: user) }
     
     it 'returns type queen if promotion successful' do
-      pawn = FactoryBot.create(:pawn, position_x: 2, color: 'white', position_y: 0, game: game)
-      piece2 = game.pieces.find_by(position_x: 0, position_y: 2)
+      pawn = FactoryBot.create(:pawn, position_x: 2, color: 'black', position_y: 0, game: game)
+      piece2 = game.pieces.find_by(position_x: 0, position_y: 0)
       piece2.update_attributes(color: 'black')
       piece2.reload
-      pawn.promote!(0, 2)
+      pawn.promote!(0, 0)
       
-      debugger
-      expect(game.pieces.find_by(position_x: 0, position_y: 2).type).to eql 'Queen'
+      
+      expect(game.pieces.find_by(position_x: 0, position_y: 0).type).to eql 'Queen'
     end
     
   end

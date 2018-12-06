@@ -268,7 +268,7 @@ RSpec.describe Piece, type: :model do
       end
 
       it 'should update captured piece to represent capture' do
-        game = FactoryBot.create(:game)
+        game = FactoryBot.create(:empty_game)
         piece = FactoryBot.create(:piece, position_x: 0, position_y: 0, game_id: game.id)
         capturable_piece = FactoryBot.create(:piece, color: 'black', position_x: 0, position_y: 1, game_id: game.id)
 

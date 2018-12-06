@@ -4,7 +4,7 @@ class Pawn < Piece
   def valid_move?(x,y)
     y_diff = y - position_y if white?
     y_diff = position_y - y if black?
-    forward_move?(y, y_diff) ? true : false
+    super && forward_move?(y, y_diff)
   end
     
   # Checks provided coordinates to see if they are valid
