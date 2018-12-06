@@ -42,6 +42,7 @@ RSpec.describe Piece, type: :model do
           expect(piece.horizontal_obstruct?(0)).to eq false
         end
       end
+      
     end
 
     describe '#diagonal_obstruct?' do
@@ -116,6 +117,7 @@ RSpec.describe Piece, type: :model do
            expect(piece.vertical_obstruct?(0)).to eq false
          end
       end
+      
     end
   end
 
@@ -210,16 +212,19 @@ RSpec.describe Piece, type: :model do
 
         expect(piece1.valid_move?(-1, 0)).to eq false
         expect(piece1.valid_move?(0, 9)).to eq false
-      end 
+      end
+      
     end
 
     describe 'general functions' do
+      
       it "Should return true if piece present at given location" do
         piece1 = FactoryBot.create(:piece, game: game)
         piece2 = FactoryBot.create(:piece, position_x: 0, position_y: 3)
 
         expect(piece2.piece_present_at?(0, 0)).to eq(true)
       end
+      
     end
 
     describe 'general functions' do
@@ -279,7 +284,7 @@ RSpec.describe Piece, type: :model do
         expect(capturable_piece.position_x).to eq 8
         expect(capturable_piece.position_y).to eq 8
       end
-
+      
       it 'should update piece location in the database' do
         game = FactoryBot.create(:game)
         piece = FactoryBot.create(:piece, position_x: 0, position_y: 0, game_id: game.id)
@@ -290,5 +295,6 @@ RSpec.describe Piece, type: :model do
         expect(piece.position_x).to eq 0
         expect(piece.position_y).to eq 1
       end
+
     end
 end

@@ -21,5 +21,6 @@ RSpec.describe Knight, type: :model do
     it "returns false if invalid move" do
       expect(knight.valid_move?(1, 2)).to eq false
     end
+
   end
 end

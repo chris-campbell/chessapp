@@ -16,5 +16,6 @@ RSpec.describe User, type: :model do
       user.save
       expect(duplicate_user.valid?).to eq false
     end
+    
   end
 end
