@@ -1,34 +1,57 @@
+form {
+  padding: 20px;
+  border-radius: 4px;
+}
+
 .form-box {
-  background: #fff;
+  background: #313131;
   border-radius: 0.500em;
   border: 0.063em solid #ccc;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   padding: 0.625em;
   width: 30%;
   min-width: 15.625em;
+  max-width: 335px;
   border: 0.063em solid lightgrey;
   margin: 0 auto;
   margin-top: 6.250em;
+
+  h2 {
+    text-align: center;
+    color: #fff;
+    margin: auto;
+    margin-bottom: 7px;
+    padding-top: 20px;
+    font-size: 24px;
+  }
+
+  label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    color: #fff;
+  }
+
+  a {
+    color: #fff;
+    font-family: 'Francois One', sans-serif;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .form-input input {
+    width: 100%;
+    border: 1px solid #cccccc;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+  }
+  .form-labels {
+    font-size: 0.813em;
+    position: relative;
+    top: 0.313em;
+  }
 }
 
-
-.form-input input{
-  width: 100%;
-  border:1px solid #cccccc;
-}
-
-
-.form-labels {
-  font-size: 0.813em;
-  position: relative;
-  top: 0.313em;
-}
-
-
-.form-label {
-  position: relative;
-  top: 0.313em;
-}
 .min-password {
   font-size: 0.688em;
 }
@@ -42,10 +65,16 @@
   height: 2.500em;
   border-radius: 0.500em;
   border: none;
-  background: #2980b9;
+  background: #30336b;
   margin-top: 0.625em;
   margin-bottom: 0.313em;
   color: #fff;
+}
+
+.submit-btn:hover {
+  background: #3a3d7d;
+  width: 101%;
+  height: 2.510em;
 }
 
 input {
@@ -59,19 +88,4 @@ input::placeholder {
   font-size: 0.813em;
   padding-left: 0.250em;
   color: #bdc3c7;
-}
-
-
-.already-member {
-  font-size: 0.750em;
-}
-
-.remember-me {
-  position: relative;
-  bottom: 0.688em;
-  font-size: 0.813em;
-}
-
-.forgot-password {
-  font-size: 0.688em;
 }

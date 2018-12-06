@@ -16,8 +16,9 @@ RSpec.describe Piece, type: :model do
 
       describe 'horizontal right' do
         let(:piece) { FactoryBot.create(:piece, position_x: 0, position_y: 0, game: game) } 
-
+          
         it 'returns true if horizontal right is obstructed' do
+
           obstruction = FactoryBot.create(:piece, position_x: 2, position_y: 0, game: game)
 
           expect(piece.horizontal_obstruct?(5)).to eq true

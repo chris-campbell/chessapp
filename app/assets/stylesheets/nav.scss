@@ -1,6 +1,26 @@
-.main-nav li { 
-    float: right;
+.navbar,
+.container,
+.hero {
+  margin: 0;
 }
+
+.navbar {
+  background: #313131;
+  position: relative;
+  .logo {
+    color: #fff;
+  }
+
+  .nav-item a {
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+  }
+
+  .main-nav li {
+    float: right;
+  }
+}
+
 .notice {
   background: #38ada9 !important;
   height: 35px !important;

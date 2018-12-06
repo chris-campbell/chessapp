@@ -1,9 +1,8 @@
 // Place all the styles related to the games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .available-game-box {
-    background: #dcdcdc !important;
+    background: #d2d2d2 !important;
     border-radius: 5px !important;
 }
 
@@ -16,9 +15,11 @@
     display: block;
     width: 100%;
     text-align: center;
-    height: 70px;
     margin-bottom: 10px;
-    border-radius: 5px;
-    background: #74b9ff;
-    color: black;
+    border-radius: 5px !important;
+    background: #2F316A;
+    color: #fff;
+    a {
+        color: #fff;
+    }
 }
