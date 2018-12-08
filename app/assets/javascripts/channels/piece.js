@@ -15,22 +15,22 @@ App.piece = App.cable.subscriptions.create("PieceChannel", {
     const square = $(`.ui-droppable[data-row=${data.position_x}][data-col=${data.position_y}]`);
 
     if (piece) {
+      // Stores color of piece already occupying square
       let squarePieceColor;
+      // Upcases current players turn
       $('.noticer p').html(data.turn[0].toUpperCase() + data.turn.substring(1) + ' Turn');
       if (square[0].children.length > 0) {
         squarePieceColor = square[0].children[0].getAttribute('data-color');
+        // determines if piece moving to square is not same color as piece in square
         if (data.color !== $.trim(squarePieceColor)) {
           const id = square[0].children[0].getAttribute('id');
           $(`td .piece_image[data-piece_id=${id}]`).remove();
           return (piece).appendTo(square);
         }
       }
-      else if (data.color === $.trim(squarePieceColor)) {
-        return alert('Same Team asshole');
-      }
-      else {
-        return $(piece).detach().css({ top: 0, left: 0 }).appendTo(square);
-      }
+    }
+    else {
+      return $(piece).detach().css({ top: 0, left: 0 }).appendTo(square);
     }
   }
 });

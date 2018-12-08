@@ -1,6 +1,6 @@
 form {
-  padding: 20px;
-  border-radius: 4px;
+  padding: 1.25rem;
+  border-radius: 0.25rem;
 }
 
 .form-box {
@@ -20,9 +20,9 @@ form {
     text-align: center;
     color: #fff;
     margin: auto;
-    margin-bottom: 7px;
-    padding-top: 20px;
-    font-size: 24px;
+    margin-bottom: 0.4375rem;
+    padding-top: 1.25rem;
+    font-size: 1.5rem;
   }
 
   label {
@@ -34,21 +34,21 @@ form {
   a {
     color: #fff;
     font-family: 'Francois One', sans-serif;
-    font-size: 12px;
+    font-size: 0.75rem;
     text-align: center;
     text-decoration: none;
   }
 
   .form-input input {
     width: 100%;
-    border: 1px solid #cccccc;
+    border: 0.0625rem solid #cccccc;
     font-family: 'Raleway', sans-serif;
-    font-size: 15px;
+    font-size: 0.938em;
   }
   .form-labels {
     font-size: 0.813em;
     position: relative;
-    top: 0.313em;
+    top: 0.313rem;
   }
 }
 
@@ -57,35 +57,35 @@ form {
 }
 
 .action-btn {
-  margin-top: 1.313em;
+  margin-top: 1.313rem;
 }
 
 .submit-btn {
   width: 100%;
-  height: 2.500em;
-  border-radius: 0.500em;
+  height: 2.500rem;
+  border-radius: 0.500rem;
   border: none;
   background: #30336b;
-  margin-top: 0.625em;
-  margin-bottom: 0.313em;
+  margin-top: 0.625rem;
+  margin-bottom: 0.313rem;
   color: #fff;
 }
 
 .submit-btn:hover {
   background: #3a3d7d;
   width: 101%;
-  height: 2.510em;
+  height: 2.510rem;
 }
 
 input {
-  border-radius: 0.313em;
-  height: 2.188em;
-  padding-left: 0.313em;
+  border-radius: 0.313rem;
+  height: 2.188rem;
+  padding-left: 0.313rem;
   font-size: 0.625em;
 }
 
 input::placeholder {
   font-size: 0.813em;
-  padding-left: 0.250em;
+  padding-left: 0.250rem;
   color: #bdc3c7;
 }

@@ -3,20 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .available-game-box {
     background: #d2d2d2 !important;
-    border-radius: 5px !important;
+    border-radius: 0.3125rem !important;
 }
 
 .btn-primary {
-    margin-top: 10px;
-    border-radius: 5px !important;
+    margin-top: 0.625rem;
+    border-radius: 0.3125rem !important;
 }
 
 .games-list-item {
     display: block;
     width: 100%;
     text-align: center;
-    margin-bottom: 10px;
-    border-radius: 5px !important;
+    margin-bottom: 0.039em;
+    border-radius: 0.3125rem !important;
     background: #2F316A;
     color: #fff;
     a {

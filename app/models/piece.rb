@@ -117,7 +117,8 @@ class Piece < ApplicationRecord
   def square_occupied?(x, y)
     game.pieces.exists?(position_x: x, position_y: y)
   end
-
+  
+  # Determine move direction
   def examine_path(x, y)
     if position_y == y
       'horizontal'

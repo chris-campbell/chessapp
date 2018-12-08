@@ -70,3 +70,4 @@ gem 'actioncable', '5.1.5'
 gem 'redis', '3.3.1'
 gem 'rails-controller-testing'
 gem 'carrierwave', '~> 1.0'
+gem "font-awesome-rails"

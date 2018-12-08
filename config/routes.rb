@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  
+  root 'pages#splash'
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  root 'games#index'
-   
+  
   resources :games do
     get "join", to: 'games#join'
     resources :pieces, only: [:new, :create, :show, :index]  do

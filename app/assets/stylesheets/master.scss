@@ -4,15 +4,15 @@
 
 h1 {
   color: black;
-  font-size: 72px;
+  font-size: 4.500em;
   font-family: 'Francois One', sans-serif;
-  padding-top: 10px;
+  padding-top: 0.625rem;
 }
 
 h2 {
   color: black;
   font-family: 'Francois One', sans-serif;
-  font-size: 32px;
+  font-size: 2.000em;
 }
 
 h3 {
@@ -32,7 +32,7 @@ h3 {
 }
 
 .main-nav-link {
-  padding-right: 30px;
+  padding-right: 1.875rem;
 }
 
 
@@ -56,22 +56,22 @@ h3 {
   width: 100vw;
   position: relative;
   z-index: -1;
-  bottom: 16px;
+  bottom: 1rem;
 }
 
 .game-name {
   text-align: center;
   position: relative;
-  bottom: 16px;
+  bottom: 1rem;
   margin: 0;
 }
 
 .frosted {
   position: absolute;
-  top: 75px;
-  right: 10px;
-  padding: 15px 30px 15px 30px;
-  margin-top: 80px;
+  top: 4.6875rem;
+  right: 0.625rem;
+  padding: 0.9375rem 1.875rem 0.9375rem 1.875rem;
+  margin-top: 5rem;
   width: 48vw;
   text-align: right;
 }
@@ -97,15 +97,15 @@ body {
 }
 
 .booyah-box a {
-  margin-left: 10px;
+  margin-left: 0.625rem;
 }
 
 .create-game {
-  margin-top: 120px;
+  margin-top: 7.5rem;
   h1 {
     padding-left: 25%;
     padding-right: 25%;
-    padding-bottom: 20px;
+    padding-bottom: 1.25rem;
     text-align: center;
   }
 
@@ -133,53 +133,52 @@ body {
 }
 
 .available-games {
-  font-size: 48px;
+  font-size: 3.000em;
   border-bottom: 1px solid #262d38;
-  padding: 10px !important;
+  padding: 0.625rem !important;
   color: #262d38;
 }
 
 .noticer {
   width: 100%;
-  height: 50px;
+  height: 3.125rem;
   background: #2980b9;
   text-align: center;
   position: relative;
-  bottom: 0px;
 }
 
 .noticer p {
   position: relative;
-  top: 10px;
-  font-size: 20px;
+  top: 0.625rem;
+  font-size: 1.250em;
   color: #fff;
 }
 
 #board {
   position: relative;
-  bottom: 16px;
-  top: 16px;
+  bottom: 1rem;
+  top: 1rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 25px;
+  margin-bottom: 1.5625rem;
   background-color: #596367;
-  border: 1px solid #525252;
-  -webkit-box-shadow: 10px 10px 12px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 12px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 12px -2px rgba(0, 0, 0, 0.75);
+  border: 0.0625rem solid #525252;
+  -webkit-box-shadow: 0.625rem 0.625rem 0.75rem -0.125rem rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0.625rem 0.625rem 0.75rem -0.125rem rgba(0, 0, 0, 0.75);
+  box-shadow: 0.625rem 0.625rem 0.75rem -0.125rem rgba(0, 0, 0, 0.75);
   td {
     background-image: url("white.png");
     background-position: left;
     border-collapse: collapse;
-    width: 55px;
-    height: 55px;
+    width: 3.4375rem;
+    height: 3.4375rem;
     border: lightgrey;
   }
 }
 
 .board td:hover {
-  outline-offset: -5px;
-  outline: 5px solid #94eded;
+  outline-offset: -0.3125rem;
+  outline: 0.3125rem solid #94eded;
 }
 
 #board tr:nth-child(odd) td:nth-child(even),
@@ -197,7 +196,7 @@ body {
 .center {
   text-align: center;
   margin: auto;
-  padding-bottom: 40px;
+  padding-bottom: 2.5rem;
 }
 
 .btn {
