@@ -1,5 +1,8 @@
 $primary-btn-color: #e17055;
 $hover-btn-color: #b15742;
+$primary-link-color: #2d3436;
+$thetransition: all .5s cubic-bezier(1,.25,0,.75) 0s;
+
 .splash-bg {
     background-image: linear-gradient(
       rgba(0, 0, 0, 0.67), 
@@ -61,13 +64,17 @@ $hover-btn-color: #b15742;
 
 
 .instruction-navigation {
+    background: #fff;
+    border-bottom: red;
     header {
         width: 100%;
         margin: 0 auto;
+        color: #e1714e;
         h1 {
             text-align: center;
             font-size: 51px;
             margin-top: 100px;
+            color: #353535;
         }
         p {
             width: 300px;
@@ -85,17 +92,40 @@ $hover-btn-color: #b15742;
       margin: 0 auto;
       margin-bottom: 40px;
       margin-top: 70px;
-      width: 400px;
+      width: 100%;
+      max-width: 400px;
       li {
           float: left;
-          margin-left: 25px;
+          margin-left: 19px;
           a {
           display: block;
-          color: white;
+          color: $primary-link-color;
           text-align: center;
-          padding: 16px;
           text-decoration: none;
-        }
+          position: relative;
+          font-family: 'Raleway', sans-serif;
+          &:before {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 2px;
+              bottom: 0;
+              left: 0;
+              background-color: $primary-btn-color;
+              visibility: hidden;
+              -webkit-transform: scaleX(0);
+              transform: scaleX(0);
+              -webkit-transition: $thetransition;
+              transition: $thetransition;
+              }
+              &:hover:before {
+              visibility: visible;
+              -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+              }
+          }
+        
+        
       }
     }
 }
@@ -129,3 +159,10 @@ $hover-btn-color: #b15742;
 }
 
 
+@media (max-width: 404px) {
+    .instruction-navigation {
+        li a {
+            font-size: 11px;
+        }
+    }
+}

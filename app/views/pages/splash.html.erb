@@ -24,143 +24,112 @@
                 <p>Select a chess piece and learn how to move.</p>
             </header>
             <ul>
-                <li>Pawn</li>
-                <li>Knight</li>
-                <li>Bishop</li>
-                <li>Rook</li>
-                <li>Queen</li>
-                <li>King</li>
+                <li><a href='#pawn'>Pawn</a></li>
+                <li><a href='#knight'>Knight</a></li>
+                <li><a href='#bishop'>Bishop</a></li>
+                <li><a href='#rook'>Rook</a></li>
+                <li><a href='#queen'>Queen</a></li>
+                <li><a href='#king'>King</a></li>
             </ul>
         </div>
     </div>
 </section>
 <!-- Instrution navigation -->
 
-
 <!-- Instructions -->
 <section class='instructions'>
     <div class='row'>
         <div class='col-sm-9 instruction-text'>
-            <h1>The Pawn</h1>
+            <h1 id='pawn'>The Pawn</h1>
             <p>
-                "Sed ut perspiciatis unde omnis iste 
-                natus error sit voluptatem accusantium 
-                doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis
-                et quasi architecto beatae vitae dicta
-                sunt explicabo.
+               Unlike all the other pieces, pawns can not move backwards.
+               Most of the time, a pawn moves by going up a single square,
+               but the first time each pawn is moved from its starting place,
+               it can go forward two squares. Pawns may not use the first
+               two-square move to jump over a square with another piece on
+               it or to capture.
             </p>
             <p>
-                "Sed ut perspiciatis unde omnis iste 
-                natus error sit voluptatem accusantium 
-                doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis
-                et quasi architecto beatae vitae dicta
+                <a href='https://simple.wikipedia.org/wiki/Pawn_(chess)'>Source</a>
             </p>
         </div>
         <div class='col-sm-3 piece'>
             <%= image_tag 'pawn_move.png', class: 'piece-img' %>
         </div>
         <div class='col-sm-9 instruction-text'>
-            <h1>The Knight</h1>
+            <h1 id='knight'>The Knight</h1>
             <p>
-                "Sed ut perspiciatis unde omnis iste 
-                natus error sit voluptatem accusantium 
-                doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis
-                et quasi architecto beatae vitae dicta
-                sunt explicabo.
+                The knight move is unusual among chess pieces.
+                It moves to a square that is two squares away 
+                horizontally and one square vertically, or two 
+                squares vertically and one square horizontally.
             </p>
             <p>
-                "Sed ut perspiciatis unde omnis iste 
-                natus error sit voluptatem accusantium 
-                doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis
-                et quasi architecto beatae vitae dicta
+                <a href='https://en.wikipedia.org/wiki/Knight_(chess)'>Source</a>
             </p>
         </div>
         <div class='col-sm-3 piece'>
             <%= image_tag 'knight_moves.png', class: 'piece-img' %>
         </div>
         <div class='col-sm-9 instruction-text'>
-            <h1>The Bishop</h1>
+            <h1 id='bishop'>The Bishop</h1>
             <p>
-                "Sed ut perspiciatis unde omnis iste 
-                natus error sit voluptatem accusantium 
-                doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis
-                et quasi architecto beatae vitae dicta
-                sunt explicabo.
+                The bishop has no restrictions in distance for each move,
+                but is limited to diagonal movement. Bishops, like all 
+                other pieces except the knight, cannot jump over other
+                pieces. A bishop captures by occupying the square on 
+                which an enemy piece sits.
             </p>
             <p>
-                "Sed ut perspiciatis unde omnis iste 
-                natus error sit voluptatem accusantium 
-                doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis
-                et quasi architecto beatae vitae dicta
+                <a href='https://en.wikipedia.org/wiki/Bishop_(chess)'>Source</a>
             </p>
         </div>
         <div class='col-sm-3 piece'>
             <%= image_tag 'bishop_moves.png', class: 'piece-img' %>
         </div>
         <div class='col-sm-9 instruction-text'>
-            <h1>The Rook</h1>
+            <h1 id='rook'>The Rook</h1>
             <p>
-                "Sed ut perspiciatis unde omnis iste 
-                natus error sit voluptatem accusantium 
-                doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis
-                et quasi architecto beatae vitae dicta
-                sunt explicabo.
+                The rook moves horizontally or vertically, through 
+                any number of unoccupied squares (see diagram). 
+                As with captures by other pieces, the rook captures 
+                by occupying the square on which the enemy piece sits.
+                The rook also participates, with the king, in a special 
+                move called castling.
             </p>
             <p>
-                "Sed ut perspiciatis unde omnis iste 
-                natus error sit voluptatem accusantium 
-                doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis
-                et quasi architecto beatae vitae dicta
+                <a href='https://en.wikipedia.org/wiki/Rook_(chess)'>Source</a>
             </p>
         </div>
         <div class='col-sm-3 piece'>
             <%= image_tag 'rook_moves.png', class: 'piece-img' %>
         </div>
         <div class='col-sm-9 instruction-text'>
-            <h1>The Queen</h1>
+            <h1 id='queen'>The Queen</h1>
             <p>
-                "Sed ut perspiciatis unde omnis iste 
-                natus error sit voluptatem accusantium 
-                doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis
-                et quasi architecto beatae vitae dicta
-                sunt explicabo.
+                The queen can be moved any number of unoccupied squares in a 
+                straight line vertically, horizontally, or diagonally, thus 
+                combining the moves of the rook and bishop. The queen captures
+                by occupying the square on which an enemy piece sits.
             </p>
             <p>
-                "Sed ut perspiciatis unde omnis iste 
-                natus error sit voluptatem accusantium 
-                doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis
-                et quasi architecto beatae vitae dicta
+                <a href='https://en.wikipedia.org/wiki/Queen_(chess)'>Source</a>
             </p>
         </div>
         <div class='col-sm-3 piece'>
             <%= image_tag 'queen_moves.png', class: 'piece-img' %>
         </div>
         <div class='col-sm-9 instruction-text'>
-            <h1>The King</h1>
+            <h1 id='king'>The King</h1>
             <p>
-                "Sed ut perspiciatis unde omnis iste 
-                natus error sit voluptatem accusantium 
-                doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis
-                et quasi architecto beatae vitae dicta
-                sunt explicabo.
+                The king moves exactly one square horizontally, vertically, 
+                or diagonally. A special move with the king known as castling
+                is allowed only once per player, per game (see below). A rook
+                moves any number of vacant squares in a horizontal or vertical
+                direction. It also is moved when castling.
             </p>
             <p>
-                "Sed ut perspiciatis unde omnis iste 
-                natus error sit voluptatem accusantium 
-                doloremque laudantium, totam rem aperiam,
-                eaque ipsa quae ab illo inventore veritatis
-                et quasi architecto beatae vitae dicta
+                <a href='Rules of chess - Wikipediahttps://en.wikipedia.org/wiki/Rules_of_chess'>Source</a>
             </p>
         </div>
         <div class='col-sm-3 piece'>
@@ -168,3 +137,4 @@
         </div>
     </div>
 </section>
+<!-- Instructions -->

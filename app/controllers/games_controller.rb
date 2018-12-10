@@ -9,6 +9,10 @@ class GamesController < ApplicationController
   def new
     @game = Game.new
   end
+  
+  def after_sign_up_path
+    redirect_to games_path
+  end
 
   def create
     @game = current_user.games.create!(game_create_params)
