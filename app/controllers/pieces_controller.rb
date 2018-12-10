@@ -10,23 +10,18 @@ class PiecesController < ApplicationController
 
     return false unless @piece.player == current_user.id
 
-      if @piece.valid_move?(x, y)
-        @piece.capture!(x, y)
-
-        return false if @piece.update_turn(color)
-
-        if @piece
-          ActionCable.server.broadcast 'piece_channel',
-                                        position_x: x,
-                                        position_y: y,
-                                        color: color,
-                                        player: @piece.player,
-                                        piece_id: @piece.id,
-                                        turn: @game.opposite_color(@game.turn)
-        end
-      else
-        false
+    if @piece.valid_move?(x, y)
+      @piece.capture!(x, y)
+      return false if @piece.update_turn(color)
+      if @piece
+        ActionCable.server.broadcast 'piece_channel',
+                    position_x: x, position_y: y,
+                    color: color, player: @piece.player,
+                    piece_id: @piece.id, turn: @game.opposite_color(@game.turn)
       end
+    else
+      false
+    end
   end
 
   private

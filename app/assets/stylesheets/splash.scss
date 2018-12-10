@@ -1,5 +1,5 @@
 $primary-btn-color: #e17055;
-$hover-btn-color: #6c5ce7;
+$hover-btn-color: #b15742;
 .splash-bg {
     background-image: linear-gradient(
       rgba(0, 0, 0, 0.67), 
@@ -7,7 +7,8 @@ $hover-btn-color: #6c5ce7;
     ), url('splash_bg');
     background-repeat: no-repeat;
     background-position: center;
-    height: 46.25rem;
+    background-size: cover;
+    height: 100vh;
     .logo_description {
         width: 100%;
         margin: 0 auto;
@@ -33,25 +34,98 @@ $hover-btn-color: #6c5ce7;
             color: #fff;
             border-radius: 0.1875rem;
         }
-        
         .signup-btn:hover {
             width: 12.5rem;
             color: #fff;
             background: $hover-btn-color;
             border-radius: 0.1875rem;
+            border: 0.1px solid #fff;
         }
         .social {
-            position: relative;
-            top: 15.625rem;
-            float: right;
-            margin-right: 1.875rem;
+            display: block;
+            width: 193px;
+            margin: 0 auto;
+            margin-top: 20px;
         }
         .social-p {
             color: rgba(255, 255, 255, 0.41);
             margin-left: 1.25rem;
+            font-size: 22px;
         }
         .social-p:hover {
             color: #fff;
         }
     }
 }
+
+
+
+.instruction-navigation {
+    header {
+        width: 100%;
+        margin: 0 auto;
+        h1 {
+            text-align: center;
+            font-size: 51px;
+            margin-top: 100px;
+        }
+        p {
+            width: 300px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 40px;
+      margin-top: 70px;
+      width: 400px;
+      li {
+          float: left;
+          margin-left: 25px;
+          a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 16px;
+          text-decoration: none;
+        }
+      }
+    }
+}
+
+.instructions {
+    height: auto;
+    .instruction-text {
+        background: #e17055;
+        border-bottom: 1px solid lightgrey;
+        border-top: 1px solid lightgrey;
+        height: auto;
+        padding: 20px;
+        h1 {
+            text-align: center;
+            font-size: 30px;
+        }
+        p {
+            text-align: center;
+        }
+    }
+    .piece {
+        background: #efefef;
+        width: 100%;
+        padding-bottom: 20px;
+        border-bottom: 1px solid lightgrey;
+        .piece-img {
+            width: 100%;
+            padding-top: 22px;
+        }
+    }
+}
+
+

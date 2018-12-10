@@ -6,7 +6,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto"></ul>
-    <ul class="navbar-nav main-nav">
+    <ul class="navbar-nav main-nav nav-item">
       <% if user_signed_in? %>
         <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'main-nav-link' %>
       <% else %>

@@ -1,3 +1,6 @@
+$primary-btn-color: #e17055;
+$hover-btn-color: #b15742;
+
 form {
   padding: 1.25rem;
   border-radius: 0.25rem;
@@ -65,14 +68,15 @@ form {
   height: 2.500rem;
   border-radius: 0.500rem;
   border: none;
-  background: #30336b;
+  background: $primary-btn-color;
   margin-top: 0.625rem;
   margin-bottom: 0.313rem;
   color: #fff;
 }
 
 .submit-btn:hover {
-  background: #3a3d7d;
+  background: $hover-btn-color;
+  border: 0.1px solid #fff;
   width: 101%;
   height: 2.510rem;
 }
