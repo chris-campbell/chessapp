@@ -11,15 +11,15 @@
     border-radius: 0.3125rem !important;
 }
 
-.games-list-item {
-    display: block;
+.games-box {
     width: 100%;
-    text-align: center;
-    margin-bottom: 0.039em;
-    border-radius: 0.3125rem !important;
-    background: #2F316A;
-    color: #fff;
-    a {
-        color: #fff;
+    .game-item {
+        width: 40%;
     }
+}
+
+.avatar-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50% !important;
 }

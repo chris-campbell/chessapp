@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  root 'pages#splash'
-  devise_for :users, controllers: { registrations: "registrations" }
-  devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
+  root 'games#index'
+  
+  get '/splash', to: 'pages#splash'
+  
+  devise_for :users
+
+  resources :users, only: [:edit, :update, :show]
   
   resources :games do
     get "join", to: 'games#join'
@@ -12,5 +14,7 @@ Rails.application.routes.draw do
   	 	get 'move', to: 'pieces#move'
     end
   end
+  
+  # ActionCable route
   mount ActionCable.server, at: '/cable'
 end

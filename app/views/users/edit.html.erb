@@ -1,0 +1,11 @@
+<%= form_for(@user) do |f| %>
+    <%= f.label :email %>
+    <br>
+    <%= f.text_field :email %>
+    <br>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+    <br>
+    <%= f.submit 'Save Change' %>
+
+<% end %>
