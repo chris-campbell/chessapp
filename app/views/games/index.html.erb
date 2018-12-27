@@ -1,22 +1,39 @@
-
-
-
 <div class="row col-10 offset-1">
-   <div class="start-button">
-     <%= link_to 'Start Game', new_game_path, class: 'btn btn-primary button big' %>
-    </div>
+     <%= link_to 'Create New Game', new_game_path, class: 'start-button btn btn-primary button big' %>
 </div>
 
-<div class='games-box'>
+<section class='games-box'>
     <div class="row col-10 offset-1">
         <% @games.each do |game| %>
-            <div class='game-item col-md-4'>
-                <div class='users-avatars'>
-                    <%= image_tag game.user.avatar, class: 'avatar-image' %>
+            <article class='game-item col-md-4'>
+                <header class='users-avatars row'>
+                    <div class='white-user col-4'>
+                        <%= image_tag game.user.avatar, class: 'avatar-image' %>
+                        <br>
+                        <div class='white-indicator'></div>
+                    </div>
+                    <div class='col-4 versus'>VS</div>
+                    <div class='black-user col-4'>
+                        <% if game.black_id.nil? %>
+                            <%= image_tag 'default-avatar.png', class: 'avatar-image' %>
+                        <% else %>
+                            <%= image_tag find_user(game.black_id), class: 'avatar-image' %>
+                        <% end %>
+                        <br>
+                        <div class='black-indicator'></div>
+                    </div>
+                </header>
+                <div class='access-game'>
+                    <% if current_user.id == game.white_id %>	
+                        <h3><%= game.name.capitalize %></h3>
+                        <p><button class="w3-button w3-red"><%= link_to 'Enter', game_path(game) %></button></p>
+                        
+                    <% elsif %>	
+                        <h3><%= game.name.capitalize %></h3>
+                        <p><button class="w3-button w3-red"><%= link_to 'Join', game_join_path(game) %></button></p>
+                    <% end %>
                 </div>
-                <h3><%= game.name %></h3>
-                <p><%= game.name.capitalize %>  -<%= link_to 'Enter', game_path(game) %></p>
-            </div>
+            </article>
         <% end %>
     </div>
-</div>
+</section>

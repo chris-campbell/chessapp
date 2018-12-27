@@ -12,9 +12,21 @@
 }
 
 .games-box {
+    // flex-direction: row;
     width: 100%;
+    margin-top: 30px;
     .game-item {
         width: 40%;
+        height: 238px;
+        min-width: 308px;
+        margin-bottom: 20px;
+        padding-left: 11px;
+        padding-right: 0;
+        -webkit-box-shadow: 10px 10px 24px -6px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 24px -6px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 24px -6px rgba(0,0,0,0.75);
+        border-bottom-left-radius: 5px !important;
+        border-bottom-right-radius: 5px !important;
     }
 }
 
@@ -22,4 +34,5 @@
     width: 60px;
     height: 60px;
     border-radius: 50% !important;
+    text-align: center;
 }

@@ -9,7 +9,7 @@ class GamesController < ApplicationController
   def new
     @game = Game.new
   end
-  
+
   def after_sign_up_path
     redirect_to games_path
   end
@@ -50,4 +50,5 @@ class GamesController < ApplicationController
     params.require(:game).permit(:name, :email, :user_id, :white_id, :black_id,
     :turn, :user_id, :winner_id)
   end
+
 end

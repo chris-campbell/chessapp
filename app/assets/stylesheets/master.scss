@@ -210,3 +210,72 @@ body {
   border: 0px;
   color: #c1d5e0;
 }
+.users-avatars {
+  background: #f39c12;
+  padding-top: 30px;
+  border-top-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+  width: 100%;
+  .versus {
+    display: block;
+    float: right;
+    position: relative;
+    top: 15px;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+  }
+}
+
+
+
+.black-user, .white-user {
+  text-align: center;
+}
+
+.black-indicator {
+    display: inline-block;
+    height: 5px;
+    background: black;
+    margin-left: -8%;
+    border-radius: 62px !important;
+    width: 50px;
+}
+
+.white-indicator {
+    display: inline-block;
+    height: 5px;
+    background: white;
+    margin-left: -8%;
+    border-radius: 62px !important;
+    width: 50px;
+}
+
+
+.access-game {
+  background: #fff;
+  height: 125px;
+  margin-bottom: 20px;
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+  h3 {
+    text-align: center;
+    padding-top: 16px;
+    font-size: 20px;
+    color: #424242;
+  }
+  button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    background: #1ABC9C;
+    border: 1px solid #1ABC9C;
+    padding: 5px;
+    border-radius: 3px;
+    width: 100px;
+    color: #fff;
+    a {
+      color: #fff;
+    }
+  }
+}
