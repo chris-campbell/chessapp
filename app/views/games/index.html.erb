@@ -1,5 +1,5 @@
 <div class="row col-10 offset-1">
-     <%= link_to 'Create New Game', new_game_path, class: 'start-button btn btn-primary button big' %>
+     <%= link_to 'Create New Game', new_game_path, class: 'create-button btn btn-primary button big' %>
 </div>
 
 <section class='games-box'>
@@ -24,10 +24,9 @@
                     </div>
                 </header>
                 <div class='access-game'>
-                    <% if current_user.id == game.white_id %>	
+                    <% if current_user_white?(game) %>	
                         <h3><%= game.name.capitalize %></h3>
                         <p><button class="w3-button w3-red"><%= link_to 'Enter', game_path(game) %></button></p>
-                        
                     <% elsif %>	
                         <h3><%= game.name.capitalize %></h3>
                         <p><button class="w3-button w3-red"><%= link_to 'Join', game_join_path(game) %></button></p>
