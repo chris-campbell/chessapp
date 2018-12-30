@@ -4,12 +4,15 @@ class UsersController < ApplicationController
     before_action :set_user
     
     def show
+      # :set_user
     end
     
     def edit
+      # :set_user
     end
     
     def update
+      # :set_user
       if @user.update(user_params)
         redirect_to @user
       else
