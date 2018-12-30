@@ -18,3 +18,5 @@
 
 # Ignore Jetbrains idea directory
 .idea
+# Ignore application configuration
+/config/application.yml

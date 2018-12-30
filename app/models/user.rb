@@ -11,4 +11,9 @@ class User < ApplicationRecord
                     format:     { with: VALID_EMAIL_REGEX }
                     
   mount_uploader :avatar, AvatarUploader
+  
+  after_create :send_email
+  def send_email
+    NotificationMailer.comment_added(self).deliver
+  end
 end
