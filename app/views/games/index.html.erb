@@ -1,11 +1,11 @@
-<div class="row col-10 offset-1">
-     <%= link_to 'Create New Game', new_game_path, class: 'create-button btn btn-primary button big' %>
+<div class="row btn-box">
+ <%= link_to 'Create New Game', new_game_path, class: 'create-button btn btn-primary button big' %>
 </div>
 
 <section class='games-box'>
-    <div class="row col-10 offset-1">
+    <div class="row">
         <% @games.each do |game| %>
-            <article class='game-item col-md-4'>
+            <article class='game-item'>
                 <header class='users-avatars row'>
                     <div class='white-user col-4'>
                         <%= image_tag game.user.avatar, class: 'avatar-image' %>

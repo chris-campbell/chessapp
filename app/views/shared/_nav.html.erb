@@ -1,22 +1,34 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand logo" href="#">Chessmate</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand logo" href="/">Chessmate</a>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto"></ul>
-    <ul class="navbar-nav main-nav nav-item">
-      <% if user_signed_in? %>
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'main-nav-link' %>
-      <% else %>
-      <li class='nav-item'>
-        <%= link_to 'Sign up', new_user_registration_path, class: 'main-nav-link' %>
-      </li>
-      <li class='nav-item'>
-        <%= link_to 'Login', new_user_session_path, class: 'main-nav-link' %>
-      </li>
-      <% end %>
-    </ul>
-  </div>
+  
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav main-nav">
+            <% if user_signed_in? %>
+            <%= image_tag find_user(current_user), class: 'avatar-image-nav' %>
+                <li class="nav-item dropdown">
+                    
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>Hi, <%= current_user.username %></span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="#">Dashboard</a>
+                        <div class="dropdown-divider"></div>
+                        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'main-nav-link dropdown-item' %>
+                    </div>
+                </li>
+                <% else %>
+                <li class='nav-item'>
+                    <%= link_to 'Sign up', new_user_registration_path, class: 'main-nav-link' %>
+                </li>
+                <li class='nav-item'>
+                    <%= link_to 'Login', new_user_session_path, class: 'main-nav-link' %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    
 </nav>
