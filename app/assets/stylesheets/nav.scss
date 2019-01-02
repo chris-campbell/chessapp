@@ -7,7 +7,7 @@ $primary-link-color: #e17055;
 }
 
 .navbar {
-  background: #313131;
+  background: #313131 !important;
   position: relative;
   .logo {
     color: #fff;
@@ -30,6 +30,10 @@ $primary-link-color: #e17055;
   }
 }
 
+.nav-link {
+  color: #fff !important;
+}
+
 .notice {
   background: #38ada9 !important;
   height: 2.188em !important;
@@ -37,15 +41,19 @@ $primary-link-color: #e17055;
 }
 
 .alert {
-  background: #a29bfe !important;
-  height: 2.188em !important;
+  background: #d1ecf1 !important;
+  border: #bee5eb !important;
   border-radius: none !important;
   text-align: center;
   margin-bottom: 0;
-  padding-bottom: 2.250em;
-  color: #fff;
+  padding: 20px;
+  color: #0c5460;
 }
 
 .alert-alert {
   border-radius: none !important;
+}
+
+.dropdown-item {
+  color: #2B2B2B !important;
 }
