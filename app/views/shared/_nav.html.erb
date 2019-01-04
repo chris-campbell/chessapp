@@ -14,9 +14,10 @@
                         <span>Hi, <%= current_user.username %></span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Profile</a>
+                        <%= link_to 'New Game', new_game_path, class: 'dropdown-item' %>
                         <a class="dropdown-item" href="#">Dashboard</a>
                         <div class="dropdown-divider"></div>
+                        <%= link_to 'Profile', edit_user_path(current_user.id), class: 'dropdown-item' %>
                         <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'main-nav-link dropdown-item' %>
                     </div>
                 </li>

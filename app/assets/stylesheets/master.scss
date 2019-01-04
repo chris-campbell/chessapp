@@ -273,14 +273,26 @@ body {
     display: block;
     margin: 0 auto;
     margin-top: 10px;
-    background: #1ABC9C;
-    border: 1px solid #1ABC9C;
+    background: #fff;
+    border: 1px solid #519ac6;
     padding: 5px;
     border-radius: 3px;
     width: 100px;
     color: #fff;
     a {
-      color: #fff;
+      color: #519ac6;
+      text-decoration: none;
+      // padding: 30px !important;
     }
   }
+}
+
+.access-game button:hover {
+  background: #519ac6;
+  color: #fff !important;
+}
+
+.access-game button a:hover {
+  color: #fff !important;
+  padding: 30px !important;
 }

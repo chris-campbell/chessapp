@@ -1,11 +1,17 @@
-<%= form_for(@user) do |f| %>
-    <%= f.label :email %>
-    <br>
-    <%= f.text_field :email %>
-    <br>
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-    <br>
-    <%= f.submit 'Save Change' %>
-
-<% end %>
+<section class='form-box'>
+    <h2>Edit Profile</h2>
+    <%= form_for(@user) do |f| %>
+        <div class='form-input'>
+            <%= f.label :username, class: 'form-labels' %><br>
+            <%= f.text_field :username %><br>
+            <%= f.label :email, class: 'form-labels' %>
+            <br>
+            <%= f.text_field :email %>
+            <br>
+            <%= f.label :avatar, class: 'form-labels' %><br>
+            <%= f.file_field :avatar %>
+            <br>
+            <%= f.submit 'Save Change' %>
+        </div>
+    <% end %>
+</section>
