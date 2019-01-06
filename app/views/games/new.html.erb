@@ -1,17 +1,15 @@
-  <div class="create-game">
+<div class="create-game">
     <div class="row">
-      <div class="col-12">
-        
-      </div>
-      <div class="form-box row">
-        <h2>Start a game</h2>
-        <%= form_for @game, url: {action: "create"} do |f| %>
-          <%= f.label :name, 'Name' %><br>
-          <%= f.text_field :name %><br>
-          <%= f.label :email, 'Email' %><br>
-          <%= f.text_field :email %><br><br>
-          <%= f.submit %>
-        <% end %>
-      </div>
+        <div class="col-12"></div>
+        <div class="form-box row">
+            <h2>Start a game</h2>
+            <%= form_for @game, url: {action: "create"} do |f| %>
+                <%= f.label :name, 'Name' %><br>
+                <%= f.text_field :name %><br>
+                <%= f.label :email, 'Email' %><br>
+                <%= f.text_field :email %><br><br>
+                <%= f.submit %>
+            <% end %>
+        </div>
     </div>
-  </div>
+</div>

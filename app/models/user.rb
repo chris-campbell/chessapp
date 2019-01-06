@@ -12,7 +12,7 @@ class User < ApplicationRecord
                     
   mount_uploader :avatar, AvatarUploader
   
-  # after_create :send_email
+  after_create :send_email
   def send_email
     NotificationMailer.comment_added(self).deliver
   end

@@ -1,20 +1,20 @@
 <div class='noticer'><p></p></div>
-
-  <div class="center"></div>
-  
+    
+    <div class="center"></div>
+    
     <h2 class='game-name'><%= @game.name %></h2>
     
-    <!-- Displays users email and assigned color -->
-    <div class='user-info'>
-      <% if current_user.id == @game.white_id %>
+<!-- Displays users email and assigned color -->
+<div class='user-info'>
+    <% if current_user.id == @game.white_id %>
         <p><%= image_tag current_user.avatar, class: "avatar-image-game" %>      <%= current_user.username %></p>
-      <% else %>
+        <% else %>
         <p><%= current_user.email %> - Color Black</p>
-      <% end %>
-    </div>
+    <% end %>
+</div>
     
-    <!-- Generate board and populates pieces -->
-    <%= render 'shared/board' %>
+<!-- Generate board and populates pieces -->
+<%= render 'shared/board' %>
 
 
 

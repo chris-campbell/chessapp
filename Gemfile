@@ -72,4 +72,4 @@ gem 'rails-controller-testing'
 gem 'carrierwave', '~> 1.0'
 gem "font-awesome-rails"
 gem "figaro"
-gem "fog-aws"
+gem "fog"
