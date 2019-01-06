@@ -2,26 +2,30 @@
 @import url('https://fonts.googleapis.com/css?family=Francois+One');
 @import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
 
+
+h1, h2, h3 {
+  // font-family: 'Raleway', sans-serif;
+  color: #484848;
+}
 h1 {
   color: black;
   font-size: 4.500em;
-  font-family: 'Francois One', sans-serif;
+
   padding-top: 0.625rem;
 }
 
 h2 {
   color: black;
-  font-family: 'Francois One', sans-serif;
+
   font-size: 2.000em;
 }
 
 h3 {
   color: black;
-  font-family: 'Francois One', sans-serif;
+
 }
 
 .main-nav {
-
   display: inline-block;
   float: right;
   margin-left: 79%;
@@ -40,8 +44,6 @@ h3 {
   padding-right: 1.875rem;
 }
 
-
-
 .alert {
   border-radius: none !important;
 }
@@ -54,14 +56,11 @@ h3 {
   text-align: center;
   margin: 0;
   padding: 0;
-}
-
-.hero {
-  content: url('hero.png');
-  width: 100vw;
-  position: relative;
-  z-index: -1;
-  bottom: 1rem;
+  span {
+    position: relative;
+    top: 2px;
+    margin-left: 10px;
+  }
 }
 
 .game-name {
@@ -69,25 +68,6 @@ h3 {
   position: relative;
   bottom: 1rem;
   margin: 0;
-}
-
-.frosted {
-  position: absolute;
-  top: 4.6875rem;
-  right: 0.625rem;
-  padding: 0.9375rem 1.875rem 0.9375rem 1.875rem;
-  margin-top: 5rem;
-  width: 48vw;
-  text-align: right;
-}
-
-.frosted h1 {
-  color: #4C4FAA;
-  
-}
-
-.frosted h2 {
-  color: #d2d2d2;
 }
 
 body {
@@ -147,16 +127,15 @@ body {
 .noticer {
   width: 100%;
   height: 3.125rem;
-  background: #a29bfe;
+  background: #f39c12;
   text-align: center;
   position: relative;
-}
-
-.noticer p {
-  position: relative;
-  top: 0.625rem;
-  font-size: 1.250em;
-  color: #fff;
+  p {
+    position: relative;
+    top: 0.625rem;
+    font-size: 1.250em;
+    color: #fff;    
+  }
 }
 
 #board {
@@ -167,7 +146,7 @@ body {
   margin-right: auto;
   margin-bottom: 1.5625rem;
   background-color: #596367;
-  border: 0.0625rem solid #525252;
+  border: 2px solid #646464;
   -webkit-box-shadow: 0.625rem 0.625rem 0.75rem -0.125rem rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0.625rem 0.625rem 0.75rem -0.125rem rgba(0, 0, 0, 0.75);
   box-shadow: 0.625rem 0.625rem 0.75rem -0.125rem rgba(0, 0, 0, 0.75);

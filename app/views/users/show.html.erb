@@ -1,5 +1,15 @@
-<h1>Edit Profile for <%= @user.email %></h1>
-
-<%= image_tag @user.avatar %>
-<br>
-<%= link_to 'Edit', edit_user_path(@user) %>
+<section class='user-profile'>
+    <article class='user-image'>
+        <%= image_tag @user.avatar %><br>
+        <p><%= @user.username unless @user.username.nil? %></p>
+    </article>
+    <article class='user-info-profile'>
+        <span class='date'><%= format_time(@user.updated_at) %></span><br>
+        <h3>Email</h3>
+        <p><%= @user.email %></p>
+    </article>
+    
+    <button>
+        <%= link_to 'Update profile', edit_user_path(@user) %>
+    </button>
+</section>

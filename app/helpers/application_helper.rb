@@ -8,4 +8,8 @@ module ApplicationHelper
     current_user.id == game.white_id
   end
   
+  def format_time(time)
+    "Last updated: #{time.strftime("%d-%m-%Y")}"
+  end
+  
 end
