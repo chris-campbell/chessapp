@@ -17,4 +17,5 @@ class User < ApplicationRecord
   def send_email
     NotificationMailer.comment_added(self).deliver
   end
+  
 end

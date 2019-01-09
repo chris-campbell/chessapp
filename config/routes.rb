@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   	 	get 'move', to: 'pieces#move'
     end
   end
+
+  resources :games, except: :destroy do
+    resource :invitations, only: [:new, :create, :show]
+  end
   
   # ActionCable route
   mount ActionCable.server, at: '/cable'
