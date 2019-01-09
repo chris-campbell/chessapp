@@ -1,4 +1,9 @@
 FactoryBot.define do
+  factory :invitation do
+    game_id { 1 }
+    player_id { 1 }
+    guest_player_email { "MyString" }
+  end
   factory :user do
     sequence :email do |n|
       "dummyEmail#{n}@gmail.com"
