@@ -1,9 +1,16 @@
 <div class='noticer'><p></p></div>
-    
-    <div class="center"></div>
-    
-    <h2 class='game-name'><%= @game.name %></h2>
-    
+
+<div class="center"></div>
+
+<h2 class='game-name'><%= @game.name %></h2>
+
+<% if @game.black_id.eql?(nil) %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Invite
+    </button>
+<% else %>
+<% end %>
+
 <!-- Displays users email and assigned color -->
 <div class='user-info'>
     <% if current_user.id == @game.white_id %>
@@ -13,12 +20,33 @@
         <p><%= current_user.email %> - Color Black</p>
     <% end %>
 </div>
-    
+
 <!-- Generate board and populates pieces -->
 <%= render 'shared/board' %>
-
-
 
 <script>
   $('.noticer p').html($('#board').data('turn')[0].toUpperCase() + $('#board').data('turn').substring(1) + ' Turn')
 </script>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel">CHESSMATE</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <%= form_tag send_path, remote: true,  method: :get do %>
+           <%= text_field_tag :name, params[:name] %>
+           <%= text_field_tag :invite_email, params[:invite_email], placeholder: 'Type in hashtag here' %>
+           <%= submit_tag 'Send' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

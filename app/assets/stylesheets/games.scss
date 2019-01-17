@@ -17,23 +17,30 @@
     margin: 0 auto;
     margin-top: 30px;
     .game-item {
-        width: 32.3%;
+        width: 49%;
         height: 238px;
         min-width: 308px;
         padding-right: 0;
-        box-shadow: 10px 10px 24px -6px rgba(0, 0, 0, 0.75);
+        box-shadow: 10px 29px 25px -6px rgba(0, 0, 0, 0.75);
         border-bottom-left-radius: 5px !important;
         border-bottom-right-radius: 5px !important;
         margin: 0 auto;
         margin-bottom: 10px;
     }
+    h2 {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .avatar-image {
+    display: block;
     width: 60px;
     height: 60px;
     border-radius: 50% !important;
     text-align: center;
+    margin: 0 auto;
 }
 
 .avatar-image-nav {
@@ -71,4 +78,11 @@
 
 .btn-box {
     padding: 0;
+}
+
+.started, .joined {
+    background: #fff;
+    border: 1px solid #ededed;
+    padding-bottom: 44px;
+    margin-bottom: 30px !important;
 }

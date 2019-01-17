@@ -3,7 +3,11 @@ class GamesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @games = Game.all
+    @games = current_user.games 
+    games = Game.all
+    @joined = games.reject do |game|
+      game.black_id != current_user.id
+    end
   end
 
   def new
@@ -39,10 +43,23 @@ class GamesController < ApplicationController
     @game.save
     render :show
   end
+  
+  def invite_page
+    @game = Game.find(params[:game_id])
+  end
 
   def show
     @game = Game.find(params[:id])
   end
+
+  # Send invitation to opposing player 
+  def send_invite
+    @game = current_user.games.last.id
+    @user = current_user.games.last
+    @info = { email: params[:invite_email], name: params[:name], game_id: @game, user: @user.user  }
+    InvitationMailer.send_invitation(@info).deliver
+  end
+
 
   private
 

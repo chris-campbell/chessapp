@@ -1,5 +1,6 @@
 <section class='games-box'>
-    <div class="row">
+    <div class="row started">
+        <h2>Games you started!</h2><br><br>
         <% @games.each do |game| %>
             <article class='game-item'>
                 <header class='users-avatars row'>
@@ -20,13 +21,36 @@
                     </div>
                 </header>
                 <div class='access-game'>
-                    <% if current_user_white?(game) %>	
-                        <h3><%= game.name.capitalize %></h3>
-                        <p><button class="w3-button w3-red"><%= link_to 'Enter', game_path(game) %></button></p>
-                    <% elsif %>	
-                        <h3><%= game.name.capitalize %></h3>
-                        <p><button class="w3-button w3-red"><%= link_to 'Join', game_join_path(game) %></button></p>
-                    <% end %>
+                    <h3><%= game.name.capitalize %></h3>
+                    <p><button class="w3-button w3-red"><%= link_to 'Enter', game_path(game) %></button></p>
+                </div>
+            </article>
+        <% end %>
+    </div>
+    <div class="row joined">
+        <h2>Games you joined!</h2><br><br>
+        <% @joined.each do |game| %>
+            <article class='game-item'>
+                <header class='users-avatars row'>
+                    <div class='white-user col-4'>
+                        <%= image_tag game.user.avatar, class: 'avatar-image' %>
+                        <br>
+                        <div class='white-indicator'></div>
+                    </div>
+                    <div class='col-4 versus'>VS</div>
+                    <div class='black-user col-4'>
+                        <% if game.black_id.nil? %>
+                            <%= image_tag 'default-avatar.png', class: 'avatar-image' %>
+                        <% else %>
+                            <%= image_tag find_user(game.black_id), class: 'avatar-image' %>
+                        <% end %>
+                        <br>
+                        <div class='black-indicator'></div>
+                    </div>
+                </header>
+                <div class='access-game'>
+                    <h3><%= game.name.capitalize %></h3>
+                    <p><button class="w3-button w3-red"><%= link_to 'Enter', game_path(game) %></button></p>
                 </div>
             </article>
         <% end %>
