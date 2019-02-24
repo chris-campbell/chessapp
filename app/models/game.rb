@@ -39,6 +39,7 @@ class Game < ApplicationRecord
     pieces.where(color: team_color)
   end
   
+  # Checks if king in check
   def in_check?(king)
     opposite_pieces = pieces.where(color: !king.color)
     opposite_pieces.each do |piece|
@@ -50,7 +51,7 @@ class Game < ApplicationRecord
     end
   end
   
-	# Will determine if move of friendly piece will cause check 
+  # Will determine if move of friendly piece will cause check 
   def put_in_check?(target_x, target_y)
     current_state = false
     ActiveRecord::Base.transaction do
@@ -67,10 +68,10 @@ class Game < ApplicationRecord
     update_attributes(position_x: x, position_y: y)
   end
   
-	def populate_board
-	  self.update_attributes(turn: 'white')
-	  puts  "This is the id: #{self.user_id}" 
-  	# Populates white pieces in the database
+  def populate_board
+    self.update_attributes(turn: 'white')
+
+    # Populates white pieces in the database
     (0..7).each do |p|
       Pawn.create(game_id: id, type: 'Pawn', player: user_id, color: 'white', position_x: p, position_y: 1)
     end
