@@ -2,10 +2,10 @@ class Game < ApplicationRecord
 
   belongs_to :user
   has_many :pieces, :dependent => :destroy
-  
+
   validates :name,  presence: true, length: { maximum: 50 }
   after_create :populate_board
-  
+
   self.inheritance_column = :type
   scope :bishops, -> { where(type: "Bishop") }
   scope :kings,   -> { where(type: "King") }
@@ -14,7 +14,6 @@ class Game < ApplicationRecord
   scope :pawns,   -> { where(type: "Pawn") }
   scope :rooks,   -> { where(type: "Rook") }
 
-  
   def opposite_color(color)
     color == 'black' ? 'white' : 'black'
   end
@@ -33,12 +32,12 @@ class Game < ApplicationRecord
     possible_moves
     return possible_moves.any?
   end
-  
+
   def friendly_pieces(color)
     team_color = color == 'black' ? 'black' : 'white'
     pieces.where(color: team_color)
   end
-  
+
   # Checks if king in check
   def in_check?(king)
     opposite_pieces = pieces.where(color: !king.color)
@@ -50,7 +49,7 @@ class Game < ApplicationRecord
       end
     end
   end
-  
+
   # Will determine if move of friendly piece will cause check 
   def put_in_check?(target_x, target_y)
     current_state = false
@@ -62,12 +61,12 @@ class Game < ApplicationRecord
     reload
     current_state
   end  
-  
+
   # The Moving of a friendly piece
   def move_friendly_piece(x,y)
     update_attributes(position_x: x, position_y: y)
   end
-  
+
   def populate_board
     self.update_attributes(turn: 'white')
 
@@ -75,20 +74,19 @@ class Game < ApplicationRecord
     (0..7).each do |p|
       Pawn.create(game_id: id, type: 'Pawn', player: user_id, color: 'white', position_x: p, position_y: 1)
     end
-    
+  
     Rook.create(game_id: id, type: 'Rook', player: user_id, color:'white', position_x: 0, position_y: 0)
     Rook.create(game_id: id, type: 'Rook', player: user_id, color:'white', position_x: 7, position_y: 0)
   
     Knight.create(game_id: id, type: 'Knight', player: user_id,  color: 'white', position_x: 1, position_y: 0)
     Knight.create(game_id: id, type: 'Knight', player: user_id, color: 'white', position_x: 6, position_y: 0)
-  
-  
+
     Bishop.create(game_id: id, type: 'Bishop', player: user_id, color: 'white', position_x: 2, position_y: 0)
     Bishop.create(game_id: id, type: 'Bishop',  player: user_id, color: 'white', position_x: 5, position_y: 0)
-  
+
     Queen.create(game_id: id, type: 'Queen', player: user_id, color: 'white', position_x: 4, position_y: 0)
     King.create(game_id: id, type: 'King',  player: user_id, color: 'white', position_x: 3, position_y: 0)
-  
+
     # Populates black pieces in the database
     (0..7).each do |p|
       Pawn.create(game_id: id, type: 'Pawn', color: 'black', position_x: p, position_y: 6)
@@ -96,17 +94,16 @@ class Game < ApplicationRecord
   
     Rook.create(game_id: id, type: 'Rook', color:'black', position_x: 0, position_y: 7)
     Rook.create(game_id: id, type: 'Rook', color:'black', position_x: 7, position_y: 7)
-  
+
     Knight.create(game_id: id, type: 'Knight', color: 'black', position_x: 1, position_y: 7)
     Knight.create(game_id: id, type: 'Knight', color: 'black', position_x: 6, position_y: 7)
-  
+
     Bishop.create(game_id: id, type: 'Bishop', color: 'black', position_x: 2, position_y: 7)
     Bishop.create(game_id: id, type: 'Bishop', color: 'black', position_x: 5, position_y: 7)
-      
+
     Queen.create(game_id: id, type: 'Queen', color: 'black', position_x: 4, position_y: 7)
     King.create(game_id: id, type: 'King', color: 'black', position_x: 3, position_y: 7)
   end
-  
 end
 
 
