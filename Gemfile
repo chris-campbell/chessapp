@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby '2.6.3'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 # Use postgresql as the database for Active Record
@@ -66,7 +68,7 @@ gem 'jquery-ui-rails'
 gem 'gon'
 gem 'sprockets', '~>3.7.2'
 gem 'rails-assets-tether', '>= 1.1.0'
-gem 'actioncable', '5.1.5'
+gem 'actioncable'
 gem 'redis'
 gem 'rails-controller-testing'
 gem 'carrierwave', '~> 1.0'
