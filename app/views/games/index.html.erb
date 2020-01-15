@@ -5,7 +5,7 @@
             <article class='game-item'>
                 <header class='users-avatars row'>
                     <div class='white-user col-4'>
-                        <%= image_tag game.user.avatar.url, class: 'avatar-image' %>
+                        <%= image_tag game.user.avatar.url || 'default-avatar.png', class: 'avatar-image' %>
                         <br>
                         <div class='white-indicator'></div>
                     </div>
@@ -14,7 +14,7 @@
                         <% if game.black_id.nil? %>
                             <%= image_tag 'default-avatar.png', class: 'avatar-image' %>
                         <% else %>
-                            <%= image_tag find_user(game.black_id).url, class: 'avatar-image' %>
+                            <%= image_tag find_user(game.black_id).url|| 'default-avatar.png', class: 'avatar-image' %>
                         <% end %>
                         <br>
                         <div class='black-indicator'></div>
