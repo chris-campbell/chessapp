@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav main-nav">
             <% if user_signed_in? %>
-            <%= image_tag find_user(current_user).url, class: 'avatar-image-nav' %>
+            <%= image_tag find_user(current_user).url || 'default-avatar.png', class: 'avatar-image-nav' %>
                 <li class="nav-item dropdown">
                     
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
