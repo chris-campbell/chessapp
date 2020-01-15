@@ -57,7 +57,7 @@ class GamesController < ApplicationController
     @game = current_user.games.last.id
     @user = current_user.games.last
     @info = { email: params[:invite_email], name: params[:name], game_id: @game, user: @user.user  }
-    InvitationMailer.send_invitation(@info).deliver
+    # InvitationMailer.send_invitation(@info).deliver
   end
 
 

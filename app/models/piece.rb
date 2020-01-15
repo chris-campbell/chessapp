@@ -168,7 +168,7 @@ class Piece < ApplicationRecord
   def valid_move?(x, y)
     # As long as these stay false return true
     if (off_the_board?(x, y) || obstructed?(x, y) || same_position?(x, y) || occupied?(x, y)).eql?(false)
-      true
+      false
     else
       false
     end

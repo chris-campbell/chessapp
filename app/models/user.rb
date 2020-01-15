@@ -14,10 +14,10 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   # Sent when new user is created in system.
-  after_create :send_email
-  def send_email
-    NotificationMailer.comment_added(self).deliver
-  end
+  # after_create :send_email
+  # def send_email
+  #   NotificationMailer.comment_added(self).deliver
+  # end
 
   def invitation
     InvitationMailer.send_invitation(self).deliver
