@@ -8,7 +8,7 @@ class PiecesController < ApplicationController
     x = params[:position_x].to_i
     y = params[:position_y].to_i
 
-    return false unless @piece.player == current_user.id && color == @piece.turn
+    return false unless @piece.player == current_user.id && color == @game.turn
       
       if @piece.valid_move?(x, y)
         @piece.capture!(x, y)
