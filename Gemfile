@@ -59,7 +59,7 @@ group :development, :test do
 end
 
 gem 'devise'
-gem 'bootstrap', '4.2.1'
+gem 'bootstrap', '4.3.1'
 gem "awesome_print", require:"ap"
 gem 'simple_form'
 gem 'jquery-ui-rails'
