@@ -1,6 +1,6 @@
 <section class='user-profile'>
     <article class='user-image'>
-        <%= image_tag @user.avatar %><br>
+        <%= image_tag @user.avatar.url || 'default-avatar.png' %><br>
         <p class='username-profile'><%= @user.username unless @user.username.nil? %></p>
     </article>
     <article class='user-info-profile'>
