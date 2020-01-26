@@ -1,59 +1,92 @@
-$primary-link-color: #e17055;
+// $primary-link-color: #e17055;
 
-.navbar,
-.container,
-.hero {
-  margin: 0;
-}
+// .navbar,
+// .container,
+// .hero {
+//   margin: 0;
+// }
 
-.navbar {
-  background: #313131 !important;
-  position: relative;
-  .logo {
-    color: #fff;
-  }
-  .logo:hover{
-    color: #e17055;
-    font-size: 1.281em;
-  }
-  .nav-item a {
-    font-family: 'Raleway', sans-serif;
-    color: #fff;
-  }
+// .navbar {
+//   background: #313131 !important;
+//   position: relative;
+//   .logo {
+//     color: #fff;
+//   }
+//   .logo:hover{
+//     color: #e17055;
+//     font-size: 1.281em;
+//   }
+//   .nav-item a {
+//     font-family: 'Raleway', sans-serif;
+//     color: #fff;
+//   }
   
-  .nav-item a:hover {
-    color: $primary-link-color;
-    text-decoration: none;
-  }
-  .main-nav li {
-    float: right;
-  }
+//   .nav-item a:hover {
+//     color: $primary-link-color;
+//     text-decoration: none;
+//   }
+//   .main-nav li {
+//     float: right;
+//   }
+// }
+
+// .nav-link {
+//   color: #fff !important;
+// }
+
+// .notice {
+//   background: #38ada9 !important;
+//   height: 2.188em !important;
+//   border-radius: none !important;
+// }
+
+// .alert {
+//   background: #d1ecf1 !important;
+//   border: #bee5eb !important;
+//   border-radius: none !important;
+//   text-align: center;
+//   margin-bottom: 0;
+//   padding: 20px;
+//   color: #0c5460;
+// }
+
+// .alert-alert {
+//   border-radius: none !important;
+// }
+
+// .dropdown-item {
+//   color: #2B2B2B !important;
+// }
+
+#navbar-override {
+/*    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%) !important;*/
+    background: #fff;
+    height: auto;
+    border-bottom: 1px solid #293c6742;
 }
 
-.nav-link {
-  color: #fff !important;
+#navbar-override .navbar-brand {
+/*    color: #fff;*/
+    color: #354F88;
+    font-size: 24px;
 }
 
-.notice {
-  background: #38ada9 !important;
-  height: 2.188em !important;
-  border-radius: none !important;
+
+#navbar-override ul li a{
+/*    color: #ffffff42;*/
+    color: #354F88;
 }
 
-.alert {
-  background: #d1ecf1 !important;
-  border: #bee5eb !important;
-  border-radius: none !important;
-  text-align: center;
-  margin-bottom: 0;
-  padding: 20px;
-  color: #0c5460;
+#navbar-override ul li {
+    margin-right: 20px;
 }
 
-.alert-alert {
-  border-radius: none !important;
+
+#navbar-override ul li a:hover {
+    color: #fbc531;
 }
 
-.dropdown-item {
-  color: #2B2B2B !important;
+.navbar-brand {
+    font-family: 'Freckle Face', cursive;
+    color: #354F88;
 }
