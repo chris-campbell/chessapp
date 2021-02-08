@@ -71,7 +71,7 @@ gem 'rails-assets-tether', '>= 1.1.0'
 gem 'actioncable'
 gem 'redis'
 gem 'rails-controller-testing'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem "font-awesome-rails"
 gem "figaro"
 gem "fog-aws"
